@@ -44,15 +44,20 @@ export class CamperDetailComponent implements OnInit {
 
   //when submit is clicked, save form entries as object data
   updateCamper(form:any): void {
+  	debugger;
   	this.camper.firstName = form.firstName;
   	this.camper.lastName = form.lastName;
+  	this.camper.gender = form.gender;
+  	this.camper.snoring = form.snoring;
+  	this.camper.sleepHeaviness = form.sleepHeaviness;
+  	this.camper.bunkmateGender = form.bunkmateGender;
 
   	//passes id and data to camper service to pass to API
   	this.camperService.updateCamper(
   		this.camper._id, this.camper
   	)
   	.subscribe((result) => {
-  		location.reload();
+  		this.router.navigate(['/campers'])
   	});
   }
 
@@ -61,8 +66,12 @@ export class CamperDetailComponent implements OnInit {
   	if (confirm("Do you really want to delete this camper record?")) {
   		this.camperService.deleteCamper(this.camper._id)
   			.subscribe((camper) => {
-  				this.router.navigate(['/quotes'])
+  				this.router.navigate(['/campers'])
   			})
   	}
+  }
+
+  goBack():void {
+  	this.router.navigate(['/campers']);
   }
 }

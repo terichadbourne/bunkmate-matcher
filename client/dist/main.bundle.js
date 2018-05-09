@@ -49,13 +49,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 //import { CamperService } from './camper.service';
 var AppComponent = /** @class */ (function () {
-    // campers = null;
     function AppComponent() {
         this.title = 'Bunkmate Matcher';
     }
-    AppComponent.prototype.ngOnInit = function () {
-        // this.campers = this.camperService.listCampers();
-    };
+    AppComponent.prototype.ngOnInit = function () { };
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-root',
@@ -149,7 +146,7 @@ module.exports = ""
 /***/ "./src/app/camper-detail/camper-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"camper\">\n<!-- \tthis section displays if not in editing mode -->\n\t<div *ngIf=\"!editing\">\n\t\t<h2>Camper Details</h2>\n\t\t<li class={{camper.classes}}>\n\t\t  \t<strong>{{camper.firstName}} {{camper.lastName}}</strong>\n\t\t  \t<br>\n\t\t  \t<span>Gender: {{camper.gender}}</span>\n\t\t  \t<br>\n\t\t  \t<span>Snoring: {{camper.snoring}}</span>\n\t\t  \t<br>\n\t\t  \t<span>Sleeping: {{camper.sleepHeaviness}}</span>\n\t\t  \t<br>\n\t\t  \t<span>Bunkmate Preference: {{camper.bunkmateGender}}</span>\n\t\t  \t<br>\n\t\t  \t<span>Acceptable Room: {{camper.acceptableRoom}}</span>\n\t\t    <br>\n\t\t</li>\n\t\t<button (click)=\"setEditMode(true)\">Edit</button>\n\t\t<button (click)=\"deleteCamper()\">Delete</button>\n\t</div> \n\n\t<!-- this section displays when in editing mode -->\n\t<div *ngIf=\"editing\">\n<!-- \t\tone-way binding form so underlying data doesn't change until we hit save -->\n\t\t<form #form=\"ngForm\" (ngSubmit)=\"updateCamper(form.value)\">\n\t\t\t<label for=\"firstName\">\n\t\t\t\t<strong>First Name:</strong>\n\t\t\t\t<input id=\"firstName\" type=\"text\" name=\"firstName\" value=\"\" size=\"50\" required=\"required\" [ngModel]=\"camper.firstName\"/>\n\t\t\t</label>\n\t\t\t<br/>\n\t\t\t<label for=\"lastName\">\n\t\t\t\t<strong>Last Name:</strong>\n\t\t\t\t<input id=\"lastName\" type=\"text\" name=\"lastName\" value=\"\" size=\"50\" required=\"required\" [ngModel]=\"camper.lastName\"/>\n\t\t\t</label>\n\t\t\t<br/>\n\t\t\t<strong>Gender: </strong>\n\t\t\t<br/>\n\t\t\t<input id=\"male\" type=\"radio\" [ngModel]=\"camper.gender\" value=\"Male\" required=\"required\"/>\n\t\t\t<label for=\"male\">Male</label>\n\t\t\t<input id=\"female\" type=\"radio\" [ngModel]=\"camper.gender\" value=\"Female\" required=\"required\" />\n\t\t\t<label for=\"female\">Female</label>\n\t\t\t<input id=\"non-binary\" type=\"radio\" [ngModel]=\"camper.gender\" value=\"Non-Binary\" required=\"required\"/>\n\t\t\t<label for=\"non-binary\">Non-Binary</label>\n\t\t\t<br/>\n\t\t\t<strong>How much do you snore? </strong>\n\t\t\t<br/>\n\t\t\t<input id=\"none\" type=\"radio\" [ngModel]=\"camper.snoring\" value=\"None\" required=\"required\"/>\n\t\t\t<label for=\"none\">Not at all</label>\n\t\t\t<input id=\"quiet\" type=\"radio\" [ngModel]=\"camper.snoring\" value=\"Quiet\" required=\"required\" />\n\t\t\t<label for=\"quiet\">Lightly / Quietly</label>\n\t\t\t<input id=\"loud\" type=\"radio\" [ngModel]=\"camper.snoring\" value=\"Loud\" required=\"required\"/>\n\t\t\t<label for=\"loud\">Heavily / Loudly</label>\n\t\t\t<br/>\n\t\t\t<strong>How soundly do you sleep? </strong>\n\t\t\t<br/>\n\t\t\t<input id=\"light\" type=\"radio\" [ngModel]=\"camper.sleepHeaviness\" value=\"Light\" required=\"required\"/>\n\t\t\t<label for=\"light\">Light sleeper</label>\n\t\t\t<input id=\"medium\" type=\"radio\" [ngModel]=\"camper.sleepHeaviness\" value=\"Medium\" required=\"required\"/>\n\t\t\t<label for=\"medium\">Medium sleeper</label>\n\t\t\t<input id=\"heavy-sleeper\" type=\"radio\" [ngModel]=\"camper.sleepHeaviness\" value=\"Heavy\" required=\"required\"/>\n\t\t\t<label for=\"heavy\">Heavy sleeper</label>\n\t\t\t<br/>\n\t\t\t<strong>What gender would you prefer your bunkmate(s) be?</strong>\n\t\t\t<br/>\n\t\t\t<input class=\"maleRoom\" id=\"maleRoom\" type=\"radio\" [(ngModel)]=\"camper.bunkmateGender\" value=\"Male\" required=\"required\"/>\n\t\t\t<label class=\"maleRoom\" for=\"maleRoom\">Male</label>\n\t\t\t<input class=\"femaleRoom\" id=\"femaleRoom\" type=\"radio\" [(ngModel)]=\"camper.bunkmateGender\" value=\"Female\" required=\"required\" />\n\t\t\t<label class=\"femaleRoom\" for=\"femaleRoom\">Female</label>\n\t\t\t<input id=\"no-preference\" type=\"radio\" [(ngModel)]=\"camper.bunkmateGender\" value=\"No Preference\" required=\"required\"/>\n\t\t\t<label for=\"no-preference\">No Preference</label><br/>\n\t\t\t<br/>\n\t\t\t<button type=\"submit\" [disabled]=\"!form.valid\">Save</button>\n\t\t\t<button (click)=\"setEditMode(false)\">Cancel</button>\n\t\t\t<br/>\n\t\t</form>\n\t</div> \n</div>\n"
+module.exports = "<div *ngIf=\"camper\">\n<!-- \tthis section displays if not in editing mode -->\n\t<div *ngIf=\"!editing\">\n\t\t<h2>Camper Details</h2>\n\t\t<li class={{camper.classes}}>\n\t\t  \t<strong>{{camper.firstName}} {{camper.lastName}}</strong>\n\t\t  \t<br>\n\t\t  \t<span>Gender: {{camper.gender}}</span>\n\t\t  \t<br>\n\t\t  \t<span>Snoring: {{camper.snoring}}</span>\n\t\t  \t<br>\n\t\t  \t<span>Sleeping: {{camper.sleepHeaviness}}</span>\n\t\t  \t<br>\n\t\t  \t<span>Bunkmate Preference: {{camper.bunkmateGender}}</span>\n\t\t  \t<br>\n\t\t  \t<span>Acceptable Room: {{camper.acceptableRoom}}</span>\n\t\t    <br>\n\t\t</li>\n\t\t<button (click)=\"setEditMode(true)\">Edit</button>\n\t\t<button (click)=\"deleteCamper()\">Delete</button>\n\t\t<button (click)=\"goBack()\">Back to List</button>\n\t</div> \n\n\t<!-- this section displays when in editing mode -->\n\t<div *ngIf=\"editing\">\n<!-- \t\tone-way binding form so underlying data doesn't change until we hit save -->\n\t\t<form #form=\"ngForm\" (ngSubmit)=\"updateCamper(form.value)\">\n\t\t\t<label for=\"firstName\">\n\t\t\t\t<strong>First Name:</strong>\n\t\t\t\t<input id=\"firstName\" type=\"text\" name=\"firstName\" value=\"\" size=\"50\" required=\"required\" [ngModel]=\"camper.firstName\"/>\n\t\t\t</label>\n\t\t\t<br/>\n\t\t\t<label for=\"lastName\">\n\t\t\t\t<strong>Last Name:</strong>\n\t\t\t\t<input id=\"lastName\" type=\"text\" name=\"lastName\" value=\"\" size=\"50\" required=\"required\" [ngModel]=\"camper.lastName\"/>\n\t\t\t</label>\n\t\t\t<br/>\n\t\t\t<strong>Gender: </strong>\n\t\t\t<br/>\n\t\t\t<input id=\"male\" type=\"radio\" [ngModel]=\"camper.gender\" name=\"gender\" value=\"Male\" required=\"required\"/>\n\t\t\t<label for=\"male\">Male</label>\n\t\t\t<input id=\"female\" type=\"radio\" [ngModel]=\"camper.gender\" name=\"gender\" value=\"Female\" required=\"required\" />\n\t\t\t<label for=\"female\">Female</label>\n\t\t\t<input id=\"non-binary\" type=\"radio\" [ngModel]=\"camper.gender\" name=\"gender\" value=\"Non-Binary\" required=\"required\"/>\n\t\t\t<label for=\"non-binary\">Non-Binary</label>\n\t\t\t<br/>\n\t\t\t<strong>How much do you snore? </strong>\n\t\t\t<br/>\n\t\t\t<input id=\"none\" type=\"radio\" [ngModel]=\"camper.snoring\" name=\"snoring\" value=\"None\" required=\"required\"/>\n\t\t\t<label for=\"none\">Not at all</label>\n\t\t\t<input id=\"quiet\" type=\"radio\" [ngModel]=\"camper.snoring\" name=\"snoring\" value=\"Quiet\" required=\"required\" />\n\t\t\t<label for=\"quiet\">Lightly / Quietly</label>\n\t\t\t<input id=\"loud\" type=\"radio\" [ngModel]=\"camper.snoring\" name=\"snoring\" value=\"Loud\" required=\"required\"/>\n\t\t\t<label for=\"loud\">Heavily / Loudly</label>\n\t\t\t<br/>\n\t\t\t<strong>How soundly do you sleep? </strong>\n\t\t\t<br/>\n\t\t\t<input id=\"light\" type=\"radio\" [ngModel]=\"camper.sleepHeaviness\" name=\"sleepHeaviness\" value=\"Light\" required=\"required\"/>\n\t\t\t<label for=\"light\">Light sleeper</label>\n\t\t\t<input id=\"medium\" type=\"radio\" [ngModel]=\"camper.sleepHeaviness\" name=\"sleepHeaviness\" value=\"Medium\" required=\"required\"/>\n\t\t\t<label for=\"medium\">Medium sleeper</label>\n\t\t\t<input id=\"heavy-sleeper\" type=\"radio\" [ngModel]=\"camper.sleepHeaviness\" name=\"sleepHeaviness\" value=\"Heavy\" required=\"required\"/>\n\t\t\t<label for=\"heavy\">Heavy sleeper</label>\n\t\t\t<br/>\n\t\t\t<strong>What gender would you prefer your bunkmate(s) be?</strong>\n\t\t\t<br/>\n\t\t\t<input class=\"maleRoom\" id=\"maleRoom\" type=\"radio\" [(ngModel)]=\"camper.bunkmateGender\" name=\"bunkmateGender\" value=\"Male\" required=\"required\"/>\n\t\t\t<label class=\"maleRoom\" for=\"maleRoom\">Male</label>\n\t\t\t<input class=\"femaleRoom\" id=\"femaleRoom\" type=\"radio\" [(ngModel)]=\"camper.bunkmateGender\" name=\"bunkmateGender\" value=\"Female\" required=\"required\" />\n\t\t\t<label class=\"femaleRoom\" for=\"femaleRoom\">Female</label>\n\t\t\t<input id=\"no-preference\" type=\"radio\" [(ngModel)]=\"camper.bunkmateGender\" name=\"bunkmateGender\" value=\"No Preference\" required=\"required\"/>\n\t\t\t<label for=\"no-preference\">No Preference</label><br/>\n\t\t\t<br/>\n\t\t\t<button type=\"submit\" [disabled]=\"!form.valid\">Save</button>\n\t\t\t<button (click)=\"setEditMode(false)\">Cancel</button>\n\t\t\t<br/>\n\t\t</form>\n\t</div> \n</div>\n"
 
 /***/ }),
 
@@ -200,12 +197,18 @@ var CamperDetailComponent = /** @class */ (function () {
     };
     //when submit is clicked, save form entries as object data
     CamperDetailComponent.prototype.updateCamper = function (form) {
+        var _this = this;
+        debugger;
         this.camper.firstName = form.firstName;
         this.camper.lastName = form.lastName;
+        this.camper.gender = form.gender;
+        this.camper.snoring = form.snoring;
+        this.camper.sleepHeaviness = form.sleepHeaviness;
+        this.camper.bunkmateGender = form.bunkmateGender;
         //passes id and data to camper service to pass to API
         this.camperService.updateCamper(this.camper._id, this.camper)
             .subscribe(function (result) {
-            location.reload();
+            _this.router.navigate(['/campers']);
         });
     };
     //after confirmation, deletes camper record and redirects to camper list
@@ -214,9 +217,12 @@ var CamperDetailComponent = /** @class */ (function () {
         if (confirm("Do you really want to delete this camper record?")) {
             this.camperService.deleteCamper(this.camper._id)
                 .subscribe(function (camper) {
-                _this.router.navigate(['/quotes']);
+                _this.router.navigate(['/campers']);
             });
         }
+    };
+    CamperDetailComponent.prototype.goBack = function () {
+        this.router.navigate(['/campers']);
     };
     CamperDetailComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -501,7 +507,7 @@ var NewCamperComponent = /** @class */ (function () {
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 var environment = {
     production: false,
-    apiUrl: 'http://159.65.38.165:8080/api/bunkmates'
+    apiUrl: '/api/bunkmates'
 };
 // http://159.65.38.165:8080/api/bunkmates
 

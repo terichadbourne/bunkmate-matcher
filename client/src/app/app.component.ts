@@ -11,13 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent {
   title = 'Bunkmate Matcher';
 
-  // campers = null;
+  constructor(){ }	
 
-  constructor(
-	// private camperService:CamperService
-  ){ }	
-
-  ngOnInit() {
-    // this.campers = this.camperService.listCampers();
-  }
+  ngOnInit() { }
 }

@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false, 
-  apiUrl: 'http://159.65.38.165:8080/api/bunkmates'
+  apiUrl: '/api/bunkmates'
 };
 
 

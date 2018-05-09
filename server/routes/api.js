@@ -12,20 +12,28 @@ var api = require('../controllers/apiController');
 
 //sets up middleware for pre-flight
 router.use((req, res, next) => {
-	res.set({
-		"Content-type": "application/json",
-		"Access-Control-Allow-Origin": "*",
-		"Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,OPTIONS",
-		"Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers"
-	});
 
 	//if it's a pre-flight, send response with headers
 	if(req.method == 'OPTIONS'){
+		res.set({
+			//"Content-type": "application/json",
+			"Access-Control-Allow-Origin": "*",
+			"Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,OPTIONS",
+			"Access-Control-Allow-Headers": "Access-Control-Allow-Headers"
+		});
 		return res.status(200).end();
+	} else {
+		res.set({
+			"Content-type": "application/json",
+			"Access-Control-Allow-Origin": "*",
+			"Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,OPTIONS",
+			"Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers"
+		});
 	}
 	next();
 });
 
+//comment
 
 //prints a list of campers
 router.get('/', api.list);
