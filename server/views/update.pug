@@ -1,0 +1,118 @@
+extends layout
+
+block content
+	div.box
+
+		h2 Edit this camper
+
+		form(action="/bunkmates/update/" + camper._id method="post")
+			label(for="firstName")
+				strong First Name:
+				input#firstName(type="text" name="firstName" value=camper.firstName size="50" required)
+			
+			br
+			label(for="lastName")
+				strong Last Name:
+				input#lastName(type="text" name="lastName" value=camper.lastName size="50" required)
+			
+			br
+			strong Gender: 
+			br
+
+			if camper.gender == "Male"
+				input#male(type="radio" name="gender" value="Male" required checked)
+			else
+				input#male(type="radio" name="gender" value="Male" required)
+			label(for="male") Male
+
+			if camper.gender == "Female"
+				input#female(type="radio" name="gender" value="Female" required checked)
+			else
+				input#female(type="radio" name="gender" value="Female" required)
+			label(for="female") Female
+
+			if camper.gender == "Non-Binary"
+				input#non-binary(type="radio" name="gender" value="Non-Binary" required checked)
+			else 
+				input#non-binary(type="radio" name="gender" value="Non-Binary" required)
+			label(for="non-binary") Non-Binary
+
+
+			br
+			strong How much do you snore?  
+			br
+
+			if camper.snoring == "None"
+				input#none(type="radio" name="snoring" value="None" required checked)
+			else 
+				input#none(type="radio" name="snoring" value="None" required)
+			label(for="none") Not at all
+			
+			if camper.snoring == "Quiet"
+				input#quiet(type="radio" name="snoring" value="Quiet" required checked)
+			else 
+				input#quiet(type="radio" name="snoring" value="Quiet" required)
+			label(for="quiet") Lightly / Quietly
+
+			if camper.snoring == "Loud"
+				input#loud(type="radio" name="snoring" value="Loud" required checked)
+			else
+				input#loud(type="radio" name="snoring" value="Loud" required)
+			label(for="loud") Heavily / Loudly
+			
+
+			br 
+			strong How soundly do you sleep? 
+			br
+
+			if camper.sleepHeaviness == "Light"
+				input#light(type="radio" name="sleepHeaviness" value="Light" required checked)
+			else
+				input#light(type="radio" name="sleepHeaviness" value="Light" required)
+			label(for="light") Light sleeper
+			
+			if camper.sleepHeaviness == "Medium"
+				input#medium(type="radio" name="sleepHeaviness" value="Medium" required checked)
+			else
+				input#medium(type="radio" name="sleepHeaviness" value="Medium" required)
+			label(for="medium") Medium sleeper
+
+			if camper.sleepHeaviness == "Heavy"
+				input#heavy(type="radio" name="sleepHeaviness" value="Heavy" required checked)
+			else
+				input#heavy-sleeper(type="radio" name="sleepHeaviness" value="Heavy" required)
+			label(for="heavy") Heavy sleeper
+
+			br
+			strong What gender would you prefer your bunkmate(s) be?
+			br
+
+			if camper.bunkmateGender == "Male"
+				input#maleRoom.maleRoom(type="radio" name="bunkmateGender" value="Male" required checked)
+			else
+				input#maleRoom.maleRoom(type="radio" name="bunkmateGender" value="Male" required)
+			label(for="maleRoom").maleRoom Male
+
+			if camper.bunkmateGender == "Female"
+				input#femaleRoom.femaleRoom(type="radio" name="bunkmateGender" value="Female" required checked)
+			else
+				input#femaleRoom.femaleRoom(type="radio" name="bunkmateGender" value="Female" required)
+			label(for="femaleRoom").femaleRoom Female
+
+			if camper.bunkmateGender == "No Preference"
+				input#no-preference(type="radio" name="bunkmateGender" value="No Preference" required checked)
+			else
+				input#no-preference(type="radio" name="bunkmateGender" value="No Preference" required)
+			label(for="no-preference") No Preference
+
+			br
+			input#updateButton(type="submit" name="updateButton" value="Update Camper")
+
+	div.box
+
+		h2 Delete this camper
+		form(action="/bunkmates/delete/" + camper._id method="post")
+			input#deleteButton(type="submit" name="deleteButton" value="Delete Camper")
+
+
+		

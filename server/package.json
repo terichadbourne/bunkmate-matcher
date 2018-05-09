@@ -1,0 +1,28 @@
+{
+  "name": "bunkmate-matcher",
+  "version": "1.2.0",
+  "description": "Turning strangers into bunkmates since 2018",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www",
+    "start-dev": "nodemon --inspect ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HarvardDCENode/assignment-5-rest-apis-terichadbourne.git"
+  },
+  "author": "Teri Chadbourne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HarvardDCENode/assignment-5-rest-apis-terichadbourne/issues"
+  },
+  "homepage": "https://github.com/HarvardDCENode/assignment-5-rest-apis-terichadbourne#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.11",
+    "pug": "^2.0.0-rc.4"
+  }
+}

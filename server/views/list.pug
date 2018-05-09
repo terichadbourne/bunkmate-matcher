@@ -1,0 +1,113 @@
+extends layout
+
+block content
+	
+	div.box
+		h2 Add a camper
+
+		form(action="bunkmates/create/" method="post")
+			
+			label(for="firstName")
+				strong First Name:
+				input#firstName(type="text" name="firstName" value="" size="50" required)
+			br
+
+			label(for="lastName")
+				strong Last Name:
+				input#lastName(type="text" name="lastName" value="" size="50" required)
+			br
+			strong Gender: 
+
+			br
+
+			input#male(type="radio" name="gender" value="Male" required)
+			label(for="male") Male
+			
+			input#female(type="radio" name="gender" value="Female" required)
+			label(for="female") Female
+
+			input#non-binary(type="radio" name="gender" value="Non-Binary" required)
+			label(for="non-binary") Non-Binary
+
+			br
+
+			strong How much do you snore?  
+
+			br
+			
+			input#none(type="radio" name="snoring" value="None" required)
+			label(for="none") Not at all
+			
+			input#quiet(type="radio" name="snoring" value="Quiet" required)
+			label(for="quiet") Lightly / Quietly
+
+			input#loud(type="radio" name="snoring" value="Loud" required)
+			label(for="loud") Heavily / Loudly
+			
+
+			br 
+
+			strong How soundly do you sleep? 
+
+			br
+
+			input#light(type="radio" name="sleepHeaviness" value="Light" required)
+			label(for="light") Light sleeper
+			
+			input#medium(type="radio" name="sleepHeaviness" value="Medium" required)
+			label(for="medium") Medium sleeper
+
+			input#heavy(type="radio" name="sleepHeaviness" value="Heavy" required)
+			label(for="heavy") Heavy sleeper
+
+
+			br
+			strong What gender would you prefer your bunkmate(s) be?
+			br
+			input#maleRoom.maleRoom(type="radio" name="bunkmateGender" value="Male" required)
+			label(for="maleRoom").maleRoom Male
+			
+			input#femaleRoom.femaleRoom(type="radio" name="bunkmateGender" value="Female" required)
+			label(for="femaleRoom").femaleRoom Female
+
+			input#no-preference(type="radio" name="bunkmateGender" value="No Preference" required)
+			label(for="no-preference") No Preference
+
+			br
+			input#createButton(type="submit" name="createButton" value="Add Camper")
+
+	div.box 
+		h2 Current Campers
+
+		ul.box#key
+			li.coedCabin Coed Cabin (No Preference)
+			li.femaleCabin Female Cabin
+			li.maleCabin Male Cabin
+			li.nonbinary Non-Binary Camper
+			li.female Female Camper
+			li.male Male Camper
+
+		ul 
+				for camper in campers
+					li(class=camper.classes)
+						strong #{camper.firstName} #{camper.lastName}
+						br 
+						span Gender: #{camper.gender}
+						br
+						span Snoring: #{camper.snoring}
+						br
+						span Sleeping: #{camper.sleepHeaviness}
+						br
+						span Bunkmate Preference: #{camper.bunkmateGender}
+						br
+						strong 
+							em Acceptable Room: #{camper.acceptableRoom}
+						br
+						em 
+							a(href="/bunkmates/" + camper._id) Edit this camper
+						br
+				else 
+					li
+						span No campers yet. Add one to the list by using the form above. 
+
+	

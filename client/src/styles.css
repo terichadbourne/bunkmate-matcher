@@ -1,0 +1,80 @@
+body {
+	color: black;
+	background-color: lightgray;
+	font-family: Arial, sans-serif;
+	padding: 20px;
+}
+
+header {
+	background: black;
+	color: white;
+	padding: 5px 20px 5px 20px;
+	border-radius: 10px
+}
+
+input[type=text] {
+	margin: 10px;
+}
+
+input[type=radio] {
+	margin: 15px 5px 10px 10px;
+}
+
+input.button {
+	margin-top: 10px;
+}
+
+li {
+	list-style-type: none;
+	padding: 10px;
+	margin-bottom: 20px;
+	border-radius: 10px;
+}
+
+li.male {
+	background-color: lightblue;
+}
+
+li.female {
+	background-color: lightpink;
+}
+
+li.nonbinary {
+	background-color: cornsilk;
+}
+
+li.maleCabin {
+	border: navy 12px solid;
+}
+
+li.femaleCabin {
+	border: palevioletred 12px solid;
+}
+
+li.coedCabin {
+	border: black 12px solid;
+}
+
+ul {
+	padding-left: 0px;
+}
+
+.box {
+	border: thin black solid;
+	padding: 20px;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+
+.box#key {
+	border: none;
+}
+
+#key li {
+	display: inline-block;
+	margin: 10px;
+}
+
+#key .male, #key .female, #key .nonbinary {
+	border: none;
+}

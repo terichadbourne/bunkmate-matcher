@@ -1,0 +1,22 @@
+<!-- Displays formatting key -->
+<h2>Current Campers ({{campers.length}})</h2>
+  <ul class='box' id='key'>
+    <li class='coedCabin'>Coed Cabin</li>
+    <li class='femaleCabin'>Female Cabin</li>
+    <li class='maleCabin'>Male Cabin</li>
+    <li class='nonbinary'>Non-Binary Camper</li>
+    <li class='female'>Female Camper</li>
+    <li class='male'>Male Camper</li>
+  </ul>
+
+  <!-- loops through camper records (from campers component) and prints to page -->
+  <ul>
+    <app-campers *ngFor="let thisCamper of campers"
+      [camper] = "thisCamper">
+    </app-campers>
+  </ul>
+
+<!-- refreshes camper list when new camper event received -->
+  <app-new-camper
+  	(newCamperEvent)="refreshCamperList()">
+  </app-new-camper>
