@@ -13,10 +13,9 @@ var api = require('../controllers/apiController');
 //sets up middleware for pre-flight
 router.use((req, res, next) => {
 
-	//if it's a pre-flight, send response with headers
+	//deal with headers appropriately based on whether it will be pre-flight
 	if(req.method == 'OPTIONS'){
 		res.set({
-			//"Content-type": "application/json",
 			"Access-Control-Allow-Origin": "*",
 			"Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,OPTIONS",
 			"Access-Control-Allow-Headers": "Access-Control-Allow-Headers"
