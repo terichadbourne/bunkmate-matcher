@@ -322,41 +322,30 @@ var CamperListComponent = /** @class */ (function () {
         this.camperService.listCampers()
             .subscribe(function (campers) {
             _this.campers = campers;
-            //clears out the filtered lists
-            _this.maleCampers = [];
-            _this.femaleCampers = [];
-            _this.nonbinaryCampers = [];
-            _this.maleCabin = [];
-            _this.femaleCabin = [];
-            _this.coedCabin = [];
-            _this.coedMaleCabin = [];
-            _this.coedFemaleCabin = [];
-            //loops through camper list, pushing to filtered lists as appropriate
-            _this.campers.forEach(function (camper) {
-                if (camper.gender == 'Male') {
-                    _this.maleCampers.push(camper);
-                }
-                if (camper.gender == 'Female') {
-                    _this.femaleCampers.push(camper);
-                }
-                if (camper.gender == 'Non-Binary') {
-                    _this.nonbinaryCampers.push(camper);
-                }
-                if (camper.acceptableRoom == 'Female') {
-                    _this.femaleCabin.push(camper);
-                }
-                if (camper.acceptableRoom == 'Male') {
-                    _this.maleCabin.push(camper);
-                }
-                if (camper.acceptableRoom == 'Co-Ed') {
-                    _this.coedCabin.push(camper);
-                }
-                if (camper.acceptableRoom == 'Co-Ed or Female') {
-                    _this.coedFemaleCabin.push(camper);
-                }
-                if (camper.acceptableRoom == 'Co-Ed or Male') {
-                    _this.coedMaleCabin.push(camper);
-                }
+            //rewrites filtered camper lists by gender and acceptable room
+            _this.maleCampers = _this.campers.filter(function (camper) {
+                return camper.gender == 'Male';
+            });
+            _this.femaleCampers = _this.campers.filter(function (camper) {
+                return camper.gender == 'Female';
+            });
+            _this.nonbinaryCampers = _this.campers.filter(function (camper) {
+                return camper.gender == 'Non-Binary';
+            });
+            _this.femaleCabin = _this.campers.filter(function (camper) {
+                return camper.acceptableRoom == 'Female';
+            });
+            _this.maleCabin = _this.campers.filter(function (camper) {
+                return camper.acceptableRoom == 'Male';
+            });
+            _this.coedMaleCabin = _this.campers.filter(function (camper) {
+                return camper.acceptableRoom == 'Co-Ed or Male';
+            });
+            _this.coedFemaleCabin = _this.campers.filter(function (camper) {
+                return camper.acceptableRoom == 'Co-Ed or Female';
+            });
+            _this.coedCabin = _this.campers.filter(function (camper) {
+                return camper.acceptableRoom == 'Co-Ed';
             });
         });
     };
