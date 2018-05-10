@@ -5,6 +5,12 @@ body {
 	padding: 20px;
 }
 
+button {
+	border-radius: 5px;
+	padding: 5px;
+	margin-top: 5px;
+}
+
 header {
 	background: black;
 	color: white;
