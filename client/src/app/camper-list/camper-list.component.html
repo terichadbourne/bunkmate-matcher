@@ -17,8 +17,24 @@
 
   <!-- loops through camper records (from campers component) and prints to page -->
   <ul>
-    <app-campers *ngFor="let thisCamper of campers"
+    <app-female *ngFor="let thisCamper of campers"
       [camper] = "thisCamper">
-    </app-campers>
+    </app-female>
+    
+    <app-coed-female *ngFor="let thisCamper of campers"
+      [camper] = "thisCamper">
+    </app-coed-female>
+
+    <app-coed *ngFor="let thisCamper of campers"
+      [camper] = "thisCamper">
+    </app-coed>
+
+    <app-coed-male *ngFor="let thisCamper of campers"
+      [camper] = "thisCamper">
+    </app-coed-male>
+
+    <app-male *ngFor="let thisCamper of campers"
+      [camper] = "thisCamper">
+    </app-male>
   </ul>
 

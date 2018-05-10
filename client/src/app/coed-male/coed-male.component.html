@@ -1,0 +1,15 @@
+<li *ngIf="camper.acceptableRoom=='Co-Ed or Male'" class={{camper.classes}}>
+  	<strong>{{camper.firstName}} {{camper.lastName}}</strong>
+  	<br>
+  	<span>Gender: {{camper.gender}}</span>
+  	<br>
+  	<span>Snoring: {{camper.snoring}}</span>
+  	<br>
+  	<span>Sleeping: {{camper.sleepHeaviness}}</span>
+  	<br>
+  	<span>Bunkmate Preference: {{camper.bunkmateGender}}</span>
+  	<br>
+  	<span>Acceptable Room: {{camper.acceptableRoom}}</span>
+    <br>
+    <a routerLink="/camper/{{camper._id}}">Edit this camper</a>
+</li>

@@ -83,6 +83,11 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__camper_list_camper_list_component__ = __webpack_require__("./src/app/camper-list/camper-list.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__camper_detail_camper_detail_component__ = __webpack_require__("./src/app/camper-detail/camper-detail.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__new_camper_new_camper_component__ = __webpack_require__("./src/app/new-camper/new-camper.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__male_male_component__ = __webpack_require__("./src/app/male/male.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__female_female_component__ = __webpack_require__("./src/app/female/female.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__coed_female_coed_female_component__ = __webpack_require__("./src/app/coed-female/coed-female.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__coed_male_coed_male_component__ = __webpack_require__("./src/app/coed-male/coed-male.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__coed_coed_component__ = __webpack_require__("./src/app/coed/coed.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -96,6 +101,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 //imports our own custom components
+
+
+
+
+
 
 
 
@@ -118,7 +128,12 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_6__campers_campers_component__["a" /* CampersComponent */],
                 __WEBPACK_IMPORTED_MODULE_7__camper_list_camper_list_component__["a" /* CamperListComponent */],
                 __WEBPACK_IMPORTED_MODULE_8__camper_detail_camper_detail_component__["a" /* CamperDetailComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__new_camper_new_camper_component__["a" /* NewCamperComponent */]
+                __WEBPACK_IMPORTED_MODULE_9__new_camper_new_camper_component__["a" /* NewCamperComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__male_male_component__["a" /* MaleComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__female_female_component__["a" /* FemaleComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__coed_female_coed_female_component__["a" /* CoedFemaleComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__coed_male_coed_male_component__["a" /* CoedMaleComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__coed_coed_component__["a" /* CoedComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -148,7 +163,7 @@ module.exports = ""
 /***/ "./src/app/camper-detail/camper-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"camper\">\n<!-- \tthis section displays if not in editing mode -->\n\t<div *ngIf=\"!editing\">\n\t\t<h2>Camper Details</h2>\n\t\t<li class={{camper.classes}}>\n\t\t  \t<strong>{{camper.firstName}} {{camper.lastName}}</strong>\n\t\t  \t<br>\n\t\t  \t<span>Gender: {{camper.gender}}</span>\n\t\t  \t<br>\n\t\t  \t<span>Snoring: {{camper.snoring}}</span>\n\t\t  \t<br>\n\t\t  \t<span>Sleeping: {{camper.sleepHeaviness}}</span>\n\t\t  \t<br>\n\t\t  \t<span>Bunkmate Preference: {{camper.bunkmateGender}}</span>\n\t\t  \t<br>\n\t\t  \t<span>Acceptable Room: {{camper.acceptableRoom}}</span>\n\t\t    <br>\n\t\t</li>\n\t\t<button (click)=\"setEditMode(true)\">Edit</button>\n\t\t<button (click)=\"deleteCamper()\">Delete</button>\n\t\t<button (click)=\"goBack()\">Back to List</button>\n\t</div> \n\n\t<!-- this section displays when in editing mode -->\n\t<div *ngIf=\"editing\">\n<!-- \t\tone-way binding form so underlying data doesn't change until we hit save -->\n\t\t<form #form=\"ngForm\" (ngSubmit)=\"updateCamper(form.value)\">\n\t\t\t<label for=\"firstName\">\n\t\t\t\t<strong>First Name:</strong>\n\t\t\t\t<input id=\"firstName\" type=\"text\" name=\"firstName\" value=\"\" size=\"50\" required=\"required\" [ngModel]=\"camper.firstName\"/>\n\t\t\t</label>\n\t\t\t<br/>\n\t\t\t<label for=\"lastName\">\n\t\t\t\t<strong>Last Name:</strong>\n\t\t\t\t<input id=\"lastName\" type=\"text\" name=\"lastName\" value=\"\" size=\"50\" required=\"required\" [ngModel]=\"camper.lastName\"/>\n\t\t\t</label>\n\t\t\t<br/>\n\t\t\t<strong>Gender: </strong>\n\t\t\t<br/>\n\t\t\t<input id=\"male\" type=\"radio\" [ngModel]=\"camper.gender\" name=\"gender\" value=\"Male\" required=\"required\"/>\n\t\t\t<label for=\"male\">Male</label>\n\t\t\t<input id=\"female\" type=\"radio\" [ngModel]=\"camper.gender\" name=\"gender\" value=\"Female\" required=\"required\" />\n\t\t\t<label for=\"female\">Female</label>\n\t\t\t<input id=\"non-binary\" type=\"radio\" [ngModel]=\"camper.gender\" name=\"gender\" value=\"Non-Binary\" required=\"required\"/>\n\t\t\t<label for=\"non-binary\">Non-Binary</label>\n\t\t\t<br/>\n\t\t\t<strong>How much do you snore? </strong>\n\t\t\t<br/>\n\t\t\t<input id=\"none\" type=\"radio\" [ngModel]=\"camper.snoring\" name=\"snoring\" value=\"None\" required=\"required\"/>\n\t\t\t<label for=\"none\">Not at all</label>\n\t\t\t<input id=\"quiet\" type=\"radio\" [ngModel]=\"camper.snoring\" name=\"snoring\" value=\"Quiet\" required=\"required\" />\n\t\t\t<label for=\"quiet\">Lightly / Quietly</label>\n\t\t\t<input id=\"loud\" type=\"radio\" [ngModel]=\"camper.snoring\" name=\"snoring\" value=\"Loud\" required=\"required\"/>\n\t\t\t<label for=\"loud\">Heavily / Loudly</label>\n\t\t\t<br/>\n\t\t\t<strong>How soundly do you sleep? </strong>\n\t\t\t<br/>\n\t\t\t<input id=\"light\" type=\"radio\" [ngModel]=\"camper.sleepHeaviness\" name=\"sleepHeaviness\" value=\"Light\" required=\"required\"/>\n\t\t\t<label for=\"light\">Light sleeper</label>\n\t\t\t<input id=\"medium\" type=\"radio\" [ngModel]=\"camper.sleepHeaviness\" name=\"sleepHeaviness\" value=\"Medium\" required=\"required\"/>\n\t\t\t<label for=\"medium\">Medium sleeper</label>\n\t\t\t<input id=\"heavy-sleeper\" type=\"radio\" [ngModel]=\"camper.sleepHeaviness\" name=\"sleepHeaviness\" value=\"Heavy\" required=\"required\"/>\n\t\t\t<label for=\"heavy\">Heavy sleeper</label>\n\t\t\t<br/>\n\t\t\t<strong>What gender would you prefer your bunkmate(s) be?</strong>\n\t\t\t<br/>\n\t\t\t<input class=\"maleRoom\" id=\"maleRoom\" type=\"radio\" [(ngModel)]=\"camper.bunkmateGender\" name=\"bunkmateGender\" value=\"Male\" required=\"required\"/>\n\t\t\t<label class=\"maleRoom\" for=\"maleRoom\">Male</label>\n\t\t\t<input class=\"femaleRoom\" id=\"femaleRoom\" type=\"radio\" [(ngModel)]=\"camper.bunkmateGender\" name=\"bunkmateGender\" value=\"Female\" required=\"required\" />\n\t\t\t<label class=\"femaleRoom\" for=\"femaleRoom\">Female</label>\n\t\t\t<input id=\"no-preference\" type=\"radio\" [(ngModel)]=\"camper.bunkmateGender\" name=\"bunkmateGender\" value=\"No Preference\" required=\"required\"/>\n\t\t\t<label for=\"no-preference\">No Preference</label><br/>\n\t\t\t<br/>\n\t\t\t<button type=\"submit\" [disabled]=\"!form.valid\">Save</button>\n\t\t\t<button (click)=\"setEditMode(false)\">Cancel</button>\n\t\t\t<br/>\n\t\t</form>\n\t</div> \n</div>\n"
+module.exports = "<div *ngIf=\"camper\">\n<!-- \tthis section displays if not in editing mode -->\n\t<div *ngIf=\"!editing\">\n\t\t<h2>Camper Details</h2>\n\t\t<li class={{camper.classes}}>\n\t\t  \t<strong>{{camper.firstName}} {{camper.lastName}}</strong>\n\t\t  \t<br>\n\t\t  \t<span>Gender: {{camper.gender}}</span>\n\t\t  \t<br>\n\t\t  \t<span>Snoring: {{camper.snoring}}</span>\n\t\t  \t<br>\n\t\t  \t<span>Sleeping: {{camper.sleepHeaviness}}</span>\n\t\t  \t<br>\n\t\t  \t<span>Bunkmate Preference: {{camper.bunkmateGender}}</span>\n\t\t  \t<br>\n\t\t  \t<span>Acceptable Room: {{camper.acceptableRoom}}</span>\n\t\t    <br>\n\t\t</li>\n\t\t<br>\n\t\t<button (click)=\"setEditMode(true)\">Edit</button>\n\t\t<button (click)=\"deleteCamper()\">Delete</button>\n\t\t<button (click)=\"goBack()\">Back to List</button>\n\t</div> \n\n\t<!-- this section displays when in editing mode -->\n\t<div *ngIf=\"editing\">\n<!-- \t\tone-way binding form so underlying data doesn't change until we hit save -->\n\t\t<form #form=\"ngForm\" (ngSubmit)=\"updateCamper(form.value)\">\n\t\t\t<label for=\"firstName\">\n\t\t\t\t<strong>First Name:</strong>\n\t\t\t\t<input id=\"firstName\" type=\"text\" name=\"firstName\" value=\"\" size=\"50\" required=\"required\" [ngModel]=\"camper.firstName\"/>\n\t\t\t</label>\n\t\t\t<br/>\n\t\t\t<label for=\"lastName\">\n\t\t\t\t<strong>Last Name:</strong>\n\t\t\t\t<input id=\"lastName\" type=\"text\" name=\"lastName\" value=\"\" size=\"50\" required=\"required\" [ngModel]=\"camper.lastName\"/>\n\t\t\t</label>\n\t\t\t<br/>\n\t\t\t<strong>Gender: </strong>\n\t\t\t<br/>\n\t\t\t<input id=\"male\" type=\"radio\" [ngModel]=\"camper.gender\" name=\"gender\" value=\"Male\" required=\"required\"/>\n\t\t\t<label for=\"male\">Male</label>\n\t\t\t<input id=\"female\" type=\"radio\" [ngModel]=\"camper.gender\" name=\"gender\" value=\"Female\" required=\"required\" />\n\t\t\t<label for=\"female\">Female</label>\n\t\t\t<input id=\"non-binary\" type=\"radio\" [ngModel]=\"camper.gender\" name=\"gender\" value=\"Non-Binary\" required=\"required\"/>\n\t\t\t<label for=\"non-binary\">Non-Binary</label>\n\t\t\t<br/>\n\t\t\t<strong>How much do you snore? </strong>\n\t\t\t<br/>\n\t\t\t<input id=\"none\" type=\"radio\" [ngModel]=\"camper.snoring\" name=\"snoring\" value=\"None\" required=\"required\"/>\n\t\t\t<label for=\"none\">Not at all</label>\n\t\t\t<input id=\"quiet\" type=\"radio\" [ngModel]=\"camper.snoring\" name=\"snoring\" value=\"Quiet\" required=\"required\" />\n\t\t\t<label for=\"quiet\">Lightly / Quietly</label>\n\t\t\t<input id=\"loud\" type=\"radio\" [ngModel]=\"camper.snoring\" name=\"snoring\" value=\"Loud\" required=\"required\"/>\n\t\t\t<label for=\"loud\">Heavily / Loudly</label>\n\t\t\t<br/>\n\t\t\t<strong>How soundly do you sleep? </strong>\n\t\t\t<br/>\n\t\t\t<input id=\"light\" type=\"radio\" [ngModel]=\"camper.sleepHeaviness\" name=\"sleepHeaviness\" value=\"Light\" required=\"required\"/>\n\t\t\t<label for=\"light\">Light sleeper</label>\n\t\t\t<input id=\"medium\" type=\"radio\" [ngModel]=\"camper.sleepHeaviness\" name=\"sleepHeaviness\" value=\"Medium\" required=\"required\"/>\n\t\t\t<label for=\"medium\">Medium sleeper</label>\n\t\t\t<input id=\"heavy-sleeper\" type=\"radio\" [ngModel]=\"camper.sleepHeaviness\" name=\"sleepHeaviness\" value=\"Heavy\" required=\"required\"/>\n\t\t\t<label for=\"heavy\">Heavy sleeper</label>\n\t\t\t<br/>\n\t\t\t<strong>What gender would you prefer your bunkmate(s) be?</strong>\n\t\t\t<br/>\n\t\t\t<input class=\"maleRoom\" id=\"maleRoom\" type=\"radio\" [(ngModel)]=\"camper.bunkmateGender\" name=\"bunkmateGender\" value=\"Male\" required=\"required\"/>\n\t\t\t<label class=\"maleRoom\" for=\"maleRoom\">Male</label>\n\t\t\t<input class=\"femaleRoom\" id=\"femaleRoom\" type=\"radio\" [(ngModel)]=\"camper.bunkmateGender\" name=\"bunkmateGender\" value=\"Female\" required=\"required\" />\n\t\t\t<label class=\"femaleRoom\" for=\"femaleRoom\">Female</label>\n\t\t\t<input id=\"no-preference\" type=\"radio\" [(ngModel)]=\"camper.bunkmateGender\" name=\"bunkmateGender\" value=\"No Preference\" required=\"required\"/>\n\t\t\t<label for=\"no-preference\">No Preference</label><br/>\n\t\t\t<br/>\n\t\t\t<button type=\"submit\" [disabled]=\"!form.valid\">Save</button>\n\t\t\t<button (click)=\"setEditMode(false)\">Cancel</button>\n\t\t\t<br/>\n\t\t</form>\n\t</div> \n</div>\n"
 
 /***/ }),
 
@@ -254,7 +269,7 @@ module.exports = ""
 /***/ "./src/app/camper-list/camper-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Displays formatting key -->\n\n<!-- refreshes camper list when new camper event received -->\n<app-new-camper\n (newCamperEvent)=\"refreshCamperList()\">\n</app-new-camper>\n\n<h2>Current Campers ({{campers.length}})</h2>\n  <ul class='box' id='key'>\n    <li class='coedCabin'>Coed Cabin</li>\n    <li class='femaleCabin'>Female Cabin</li>\n    <li class='maleCabin'>Male Cabin</li>\n    <li class='nonbinary'>Non-Binary Camper</li>\n    <li class='female'>Female Camper</li>\n    <li class='male'>Male Camper</li>\n  </ul>\n\n  <!-- loops through camper records (from campers component) and prints to page -->\n  <ul>\n    <app-campers *ngFor=\"let thisCamper of campers\"\n      [camper] = \"thisCamper\">\n    </app-campers>\n  </ul>\n\n"
+module.exports = "<!-- Displays formatting key -->\n\n<!-- refreshes camper list when new camper event received -->\n<app-new-camper\n (newCamperEvent)=\"refreshCamperList()\">\n</app-new-camper>\n\n<h2>Current Campers ({{campers.length}})</h2>\n  <ul class='box' id='key'>\n    <li class='coedCabin'>Coed Cabin</li>\n    <li class='femaleCabin'>Female Cabin</li>\n    <li class='maleCabin'>Male Cabin</li>\n    <li class='nonbinary'>Non-Binary Camper</li>\n    <li class='female'>Female Camper</li>\n    <li class='male'>Male Camper</li>\n  </ul>\n\n  <!-- loops through camper records (from campers component) and prints to page -->\n  <ul>\n    <app-female *ngFor=\"let thisCamper of campers\"\n      [camper] = \"thisCamper\">\n    </app-female>\n    \n    <app-coed-female *ngFor=\"let thisCamper of campers\"\n      [camper] = \"thisCamper\">\n    </app-coed-female>\n\n    <app-coed *ngFor=\"let thisCamper of campers\"\n      [camper] = \"thisCamper\">\n    </app-coed>\n\n    <app-coed-male *ngFor=\"let thisCamper of campers\"\n      [camper] = \"thisCamper\">\n    </app-coed-male>\n\n    <app-male *ngFor=\"let thisCamper of campers\"\n      [camper] = \"thisCamper\">\n    </app-male>\n  </ul>\n\n"
 
 /***/ }),
 
@@ -421,6 +436,276 @@ var CampersComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], CampersComponent);
     return CampersComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/coed-female/coed-female.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/coed-female/coed-female.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<li *ngIf=\"camper.acceptableRoom=='Co-Ed or Female'\" class={{camper.classes}}>\n  \t<strong>{{camper.firstName}} {{camper.lastName}}</strong>\n  \t<br>\n  \t<span>Gender: {{camper.gender}}</span>\n  \t<br>\n  \t<span>Snoring: {{camper.snoring}}</span>\n  \t<br>\n  \t<span>Sleeping: {{camper.sleepHeaviness}}</span>\n  \t<br>\n  \t<span>Bunkmate Preference: {{camper.bunkmateGender}}</span>\n  \t<br>\n  \t<span>Acceptable Room: {{camper.acceptableRoom}}</span>\n    <br>\n    <a routerLink=\"/camper/{{camper._id}}\">Edit this camper</a>\n</li>\n"
+
+/***/ }),
+
+/***/ "./src/app/coed-female/coed-female.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoedFemaleComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CoedFemaleComponent = /** @class */ (function () {
+    function CoedFemaleComponent() {
+    }
+    CoedFemaleComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Object)
+    ], CoedFemaleComponent.prototype, "camper", void 0);
+    CoedFemaleComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-coed-female',
+            template: __webpack_require__("./src/app/coed-female/coed-female.component.html"),
+            styles: [__webpack_require__("./src/app/coed-female/coed-female.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CoedFemaleComponent);
+    return CoedFemaleComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/coed-male/coed-male.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/coed-male/coed-male.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<li *ngIf=\"camper.acceptableRoom=='Co-Ed or Male'\" class={{camper.classes}}>\n  \t<strong>{{camper.firstName}} {{camper.lastName}}</strong>\n  \t<br>\n  \t<span>Gender: {{camper.gender}}</span>\n  \t<br>\n  \t<span>Snoring: {{camper.snoring}}</span>\n  \t<br>\n  \t<span>Sleeping: {{camper.sleepHeaviness}}</span>\n  \t<br>\n  \t<span>Bunkmate Preference: {{camper.bunkmateGender}}</span>\n  \t<br>\n  \t<span>Acceptable Room: {{camper.acceptableRoom}}</span>\n    <br>\n    <a routerLink=\"/camper/{{camper._id}}\">Edit this camper</a>\n</li>"
+
+/***/ }),
+
+/***/ "./src/app/coed-male/coed-male.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoedMaleComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CoedMaleComponent = /** @class */ (function () {
+    function CoedMaleComponent() {
+    }
+    CoedMaleComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Object)
+    ], CoedMaleComponent.prototype, "camper", void 0);
+    CoedMaleComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-coed-male',
+            template: __webpack_require__("./src/app/coed-male/coed-male.component.html"),
+            styles: [__webpack_require__("./src/app/coed-male/coed-male.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CoedMaleComponent);
+    return CoedMaleComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/coed/coed.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/coed/coed.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<li *ngIf=\"camper.acceptableRoom=='Co-Ed'\" class={{camper.classes}}>\n  \t<strong>{{camper.firstName}} {{camper.lastName}}</strong>\n  \t<br>\n  \t<span>Gender: {{camper.gender}}</span>\n  \t<br>\n  \t<span>Snoring: {{camper.snoring}}</span>\n  \t<br>\n  \t<span>Sleeping: {{camper.sleepHeaviness}}</span>\n  \t<br>\n  \t<span>Bunkmate Preference: {{camper.bunkmateGender}}</span>\n  \t<br>\n  \t<span>Acceptable Room: {{camper.acceptableRoom}}</span>\n    <br>\n    <a routerLink=\"/camper/{{camper._id}}\">Edit this camper</a>\n</li>\n"
+
+/***/ }),
+
+/***/ "./src/app/coed/coed.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoedComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CoedComponent = /** @class */ (function () {
+    function CoedComponent() {
+    }
+    CoedComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Object)
+    ], CoedComponent.prototype, "camper", void 0);
+    CoedComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-coed',
+            template: __webpack_require__("./src/app/coed/coed.component.html"),
+            styles: [__webpack_require__("./src/app/coed/coed.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CoedComponent);
+    return CoedComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/female/female.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/female/female.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<li *ngIf=\"camper.acceptableRoom=='Female'\" class={{camper.classes}}>\n  \t<strong>{{camper.firstName}} {{camper.lastName}}</strong>\n  \t<br>\n  \t<span>Gender: {{camper.gender}}</span>\n  \t<br>\n  \t<span>Snoring: {{camper.snoring}}</span>\n  \t<br>\n  \t<span>Sleeping: {{camper.sleepHeaviness}}</span>\n  \t<br>\n  \t<span>Bunkmate Preference: {{camper.bunkmateGender}}</span>\n  \t<br>\n  \t<span>Acceptable Room: {{camper.acceptableRoom}}</span>\n    <br>\n    <a routerLink=\"/camper/{{camper._id}}\">Edit this camper</a>\n</li>\n"
+
+/***/ }),
+
+/***/ "./src/app/female/female.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FemaleComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var FemaleComponent = /** @class */ (function () {
+    function FemaleComponent() {
+    }
+    FemaleComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Object)
+    ], FemaleComponent.prototype, "camper", void 0);
+    FemaleComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-female',
+            template: __webpack_require__("./src/app/female/female.component.html"),
+            styles: [__webpack_require__("./src/app/female/female.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], FemaleComponent);
+    return FemaleComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/male/male.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/male/male.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<li *ngIf=\"camper.acceptableRoom=='Male'\" class={{camper.classes}}>\n  \t<strong>{{camper.firstName}} {{camper.lastName}}</strong>\n  \t<br>\n  \t<span>Gender: {{camper.gender}}</span>\n  \t<br>\n  \t<span>Snoring: {{camper.snoring}}</span>\n  \t<br>\n  \t<span>Sleeping: {{camper.sleepHeaviness}}</span>\n  \t<br>\n  \t<span>Bunkmate Preference: {{camper.bunkmateGender}}</span>\n  \t<br>\n  \t<span>Acceptable Room: {{camper.acceptableRoom}}</span>\n    <br>\n    <a routerLink=\"/camper/{{camper._id}}\">Edit this camper</a>\n</li>\n"
+
+/***/ }),
+
+/***/ "./src/app/male/male.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MaleComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var MaleComponent = /** @class */ (function () {
+    function MaleComponent() {
+    }
+    MaleComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Object)
+    ], MaleComponent.prototype, "camper", void 0);
+    MaleComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-male',
+            template: __webpack_require__("./src/app/male/male.component.html"),
+            styles: [__webpack_require__("./src/app/male/male.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], MaleComponent);
+    return MaleComponent;
 }());
 
 

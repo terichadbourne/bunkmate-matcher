@@ -11,6 +11,11 @@ import { CampersComponent } from './campers/campers.component';
 import { CamperListComponent } from './camper-list/camper-list.component';
 import { CamperDetailComponent } from './camper-detail/camper-detail.component';
 import { NewCamperComponent } from './new-camper/new-camper.component';
+import { MaleComponent } from './male/male.component';
+import { FemaleComponent } from './female/female.component';
+import { CoedFemaleComponent } from './coed-female/coed-female.component';
+import { CoedMaleComponent } from './coed-male/coed-male.component';
+import { CoedComponent } from './coed/coed.component';
 
 //sets up routes to access various components
 const routes:Routes = [
@@ -25,7 +30,12 @@ const routes:Routes = [
     CampersComponent,
     CamperListComponent,
     CamperDetailComponent,
-    NewCamperComponent
+    NewCamperComponent,
+    MaleComponent,
+    FemaleComponent,
+    CoedFemaleComponent,
+    CoedMaleComponent,
+    CoedComponent
   ],
   imports: [
     BrowserModule, 
