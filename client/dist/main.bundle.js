@@ -215,7 +215,6 @@ var CamperDetailComponent = /** @class */ (function () {
     //when submit is clicked, save form entries as object data
     CamperDetailComponent.prototype.updateCamper = function (form) {
         var _this = this;
-        debugger;
         this.camper.firstName = form.firstName;
         this.camper.lastName = form.lastName;
         this.camper.gender = form.gender;

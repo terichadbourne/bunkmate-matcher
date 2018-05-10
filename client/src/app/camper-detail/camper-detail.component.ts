@@ -44,7 +44,6 @@ export class CamperDetailComponent implements OnInit {
 
   //when submit is clicked, save form entries as object data
   updateCamper(form:any): void {
-  	debugger;
   	this.camper.firstName = form.firstName;
   	this.camper.lastName = form.lastName;
   	this.camper.gender = form.gender;
