@@ -27,8 +27,13 @@ input.button {
 li {
 	list-style-type: none;
 	padding: 10px;
-	margin-bottom: 20px;
+	margin: 5px;
 	border-radius: 10px;
+	display: inline-block;
+}
+
+li.camperList {
+	width: 270px;
 }
 
 li.male {
@@ -68,11 +73,6 @@ ul {
 
 .box#key {
 	border: none;
-}
-
-#key li {
-	display: inline-block;
-	margin: 10px;
 }
 
 #key .male, #key .female, #key .nonbinary {

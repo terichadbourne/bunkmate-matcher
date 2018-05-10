@@ -108,6 +108,7 @@ var routes = [
     { path: 'camper/:id', component: __WEBPACK_IMPORTED_MODULE_8__camper_detail_camper_detail_component__["a" /* CamperDetailComponent */] }
 ];
 var AppModule = /** @class */ (function () {
+    //export module
     function AppModule() {
     }
     AppModule = __decorate([
@@ -128,6 +129,7 @@ var AppModule = /** @class */ (function () {
             providers: [],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
         })
+        //export module
     ], AppModule);
     return AppModule;
 }());

@@ -118,29 +118,29 @@ function assignRoomType(req) {
 	if (req.body.bunkmateGender == "Male") {
 		if (req.body.gender == "Male") {
 			room = "Male";
-			classes = "male maleCabin"
+			classes = "camperList male maleCabin"
 		} else if (req.body.gender == "Non-Binary") {
 			room = "Male";
-			classes = "nonbinary maleCabin"
+			classes = "camperList nonbinary maleCabin"
 		}
 	} else if (req.body.bunkmateGender == "Female") {
 		if (req.body.gender == "Female") {
 			room = "Female";
-			classes = "female femaleCabin";
+			classes = "camperList female femaleCabin";
 		} else if (req.body.gender == "Non-Binary") {
 			room = "Female";
-			classes = "nonbinary femaleCabin"
+			classes = "camperList nonbinary femaleCabin"
 		}
 	} else if (req.body.bunkmateGender == "No Preference") {
 		if (req.body.gender == "Male") {
 			room = "Co-Ed or Male";
-			classes = "male maleCabin coedCabin";
+			classes = "camperList male maleCabin coedCabin";
 		} else if (req.body.gender == "Female") {
 			room = "Co-Ed or Female";
-			classes = "female femaleCabin coedCabin";
+			classes = "camperList female femaleCabin coedCabin";
 		} else if (req.body.gender == "Non-Binary") {
 			room = "Co-Ed";
-			classes = "nonbinary coedCabin"
+			classes = "camperList nonbinary coedCabin"
 		}
 	}
 
