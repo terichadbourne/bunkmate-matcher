@@ -14,7 +14,10 @@ import { CamperService } from '../camper.service';
 
 export class CamperDetailComponent implements OnInit {
 
+  //creates camper variable
   camper:any; 
+
+  //sets editing mode to hidden by default
   editing:boolean = false;
 
   constructor(
@@ -23,6 +26,7 @@ export class CamperDetailComponent implements OnInit {
   	private router: Router
   ) { }
 
+  //on page load, fetches specific camper record
   ngOnInit() {
   	this.camper = this.getCamper();
   }
@@ -42,7 +46,7 @@ export class CamperDetailComponent implements OnInit {
   		})
   }
 
-  //when submit is clicked, save form entries as object data
+  //when submit is clicked, saves form entries as object data
   updateCamper(form:any): void {
   	this.camper.firstName = form.firstName;
   	this.camper.lastName = form.lastName;
@@ -56,6 +60,7 @@ export class CamperDetailComponent implements OnInit {
   		this.camper._id, this.camper
   	)
   	.subscribe((result) => {
+      //navigates back to camper list
   		this.router.navigate(['/campers'])
   	});
   }
@@ -70,6 +75,7 @@ export class CamperDetailComponent implements OnInit {
   	}
   }
 
+  //navigates back to camper list
   goBack():void {
   	this.router.navigate(['/campers']);
   }

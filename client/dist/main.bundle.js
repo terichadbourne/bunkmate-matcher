@@ -180,8 +180,10 @@ var CamperDetailComponent = /** @class */ (function () {
         this.route = route;
         this.camperService = camperService;
         this.router = router;
+        //sets editing mode to hidden by default
         this.editing = false;
     }
+    //on page load, fetches specific camper record
     CamperDetailComponent.prototype.ngOnInit = function () {
         this.camper = this.getCamper();
     };
@@ -198,7 +200,7 @@ var CamperDetailComponent = /** @class */ (function () {
             _this.camper = camper;
         });
     };
-    //when submit is clicked, save form entries as object data
+    //when submit is clicked, saves form entries as object data
     CamperDetailComponent.prototype.updateCamper = function (form) {
         var _this = this;
         this.camper.firstName = form.firstName;
@@ -210,6 +212,7 @@ var CamperDetailComponent = /** @class */ (function () {
         //passes id and data to camper service to pass to API
         this.camperService.updateCamper(this.camper._id, this.camper)
             .subscribe(function (result) {
+            //navigates back to camper list
             _this.router.navigate(['/campers']);
         });
     };
@@ -223,6 +226,7 @@ var CamperDetailComponent = /** @class */ (function () {
             });
         }
     };
+    //navigates back to camper list
     CamperDetailComponent.prototype.goBack = function () {
         this.router.navigate(['/campers']);
     };
@@ -284,21 +288,26 @@ var CamperListComponent = /** @class */ (function () {
         this.camperService = camperService;
         this.route = route;
         this.router = router;
+        //creates empty arrays to save full camper list to
         this.campers = [];
+        //creates empty arrays for sorting campers by gender
         this.maleCampers = [];
         this.femaleCampers = [];
         this.nonbinaryCampers = [];
+        //creates empty arrays for sorting campers by room type
         this.maleCabin = [];
         this.femaleCabin = [];
         this.coedCabin = [];
         this.coedMaleCabin = [];
         this.coedFemaleCabin = [];
+        //sets camper breakdown to be hidden by default
         this.breakdown = false;
     }
+    //refreshes camper list on each page load
     CamperListComponent.prototype.ngOnInit = function () {
         this.refreshCamperList();
     };
-    //changes visibility of create form 
+    //shows/hides camper count breakdown
     CamperListComponent.prototype.showBreakdown = function (mode) {
         this.breakdown = (mode ? true : false);
     };
@@ -306,14 +315,14 @@ var CamperListComponent = /** @class */ (function () {
     CamperListComponent.prototype.newCamper = function () {
         this.router.navigate(['/new']);
     };
-    //updates camper list (called on each page load)
+    //updates camper lists
     CamperListComponent.prototype.refreshCamperList = function () {
         var _this = this;
-        //capture the camper list from the service
+        //captures the camper list from the service
         this.camperService.listCampers()
             .subscribe(function (campers) {
             _this.campers = campers;
-            //clear out the filtered lists
+            //clears out the filtered lists
             _this.maleCampers = [];
             _this.femaleCampers = [];
             _this.nonbinaryCampers = [];
@@ -322,7 +331,7 @@ var CamperListComponent = /** @class */ (function () {
             _this.coedCabin = [];
             _this.coedMaleCabin = [];
             _this.coedFemaleCabin = [];
-            //loop through camper list, pushing to filtered lists as appropriate
+            //loops through camper list, pushing to filtered lists as appropriate
             _this.campers.forEach(function (camper) {
                 if (camper.gender == 'Male') {
                     _this.maleCampers.push(camper);
@@ -463,6 +472,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+//import needed Angular functionality
 
 var CampersComponent = /** @class */ (function () {
     function CampersComponent() {
@@ -519,8 +529,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+//import needed angular functionality
 
 
+//import custom camper service
 
 var NewCamperComponent = /** @class */ (function () {
     function NewCamperComponent(route, camperService, router) {
@@ -528,6 +540,7 @@ var NewCamperComponent = /** @class */ (function () {
         this.camperService = camperService;
         this.router = router;
         this.newCamperEvent = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */]();
+        //set up empty camper object to save to
         this.camper = {};
     }
     NewCamperComponent.prototype.ngOnInit = function () {

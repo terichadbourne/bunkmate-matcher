@@ -14,18 +14,23 @@ import { CamperService } from '../camper.service';
 
 export class CamperListComponent implements OnInit {
 
+  
+  //creates empty arrays to save full camper list to
   campers = [];
 
+  //creates empty arrays for sorting campers by gender
   maleCampers = [];
   femaleCampers = [];
   nonbinaryCampers = [];
   
+  //creates empty arrays for sorting campers by room type
   maleCabin = [];
   femaleCabin = [];
   coedCabin = [];
   coedMaleCabin = [];
   coedFemaleCabin = [];
 
+  //sets camper breakdown to be hidden by default
   breakdown:boolean = false;
 
 
@@ -35,11 +40,12 @@ export class CamperListComponent implements OnInit {
     private router: Router
   ){ }	
 
+  //refreshes camper list on each page load
   ngOnInit() {
     this.refreshCamperList();
   }
 
-  //changes visibility of create form 
+  //shows/hides camper count breakdown
   showBreakdown(mode):void {
     this.breakdown = (mode ? true : false);
   }
@@ -49,14 +55,14 @@ export class CamperListComponent implements OnInit {
     this.router.navigate(['/new']);
   }
 
-  //updates camper list (called on each page load)
+  //updates camper lists
   refreshCamperList(): void {
-    //capture the camper list from the service
+    //captures the camper list from the service
   	this.camperService.listCampers()
   		.subscribe((campers:any) => {
   			this.campers = campers;
 
-        //clear out the filtered lists
+        //clears out the filtered lists
         this.maleCampers = [];
         this.femaleCampers = [];
         this.nonbinaryCampers = [];
@@ -66,7 +72,7 @@ export class CamperListComponent implements OnInit {
         this.coedMaleCabin = [];
         this.coedFemaleCabin = [];
 
-        //loop through camper list, pushing to filtered lists as appropriate
+        //loops through camper list, pushing to filtered lists as appropriate
         this.campers.forEach((camper) => {
           if (camper.gender == 'Male') {
             this.maleCampers.push(camper);

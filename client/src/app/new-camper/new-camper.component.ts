@@ -1,6 +1,8 @@
+//import needed angular functionality
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+//import custom camper service
 import { CamperService } from '../camper.service';
 
 @Component({
@@ -14,6 +16,7 @@ export class NewCamperComponent implements OnInit {
 
   @Output() newCamperEvent = new EventEmitter();
   
+  //set up empty camper object to save to
   camper:any = {};
 
   constructor(
