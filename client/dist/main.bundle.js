@@ -252,7 +252,7 @@ module.exports = ""
 /***/ "./src/app/camper-list/camper-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Displays formatting key -->\n<h2>Current Campers ({{campers.length}})</h2>\n  <ul class='box' id='key'>\n    <li class='coedCabin'>Coed Cabin</li>\n    <li class='femaleCabin'>Female Cabin</li>\n    <li class='maleCabin'>Male Cabin</li>\n    <li class='nonbinary'>Non-Binary Camper</li>\n    <li class='female'>Female Camper</li>\n    <li class='male'>Male Camper</li>\n  </ul>\n\n  <!-- loops through camper records (from campers component) and prints to page -->\n  <ul>\n    <app-campers *ngFor=\"let thisCamper of campers\"\n      [camper] = \"thisCamper\">\n    </app-campers>\n  </ul>\n\n<!-- refreshes camper list when new camper event received -->\n  <app-new-camper\n  \t(newCamperEvent)=\"refreshCamperList()\">\n  </app-new-camper>"
+module.exports = "<!-- Displays formatting key -->\n\n<!-- refreshes camper list when new camper event received -->\n<app-new-camper\n (newCamperEvent)=\"refreshCamperList()\">\n</app-new-camper>\n\n<h2>Current Campers ({{campers.length}})</h2>\n  <ul class='box' id='key'>\n    <li class='coedCabin'>Coed Cabin</li>\n    <li class='femaleCabin'>Female Cabin</li>\n    <li class='maleCabin'>Male Cabin</li>\n    <li class='nonbinary'>Non-Binary Camper</li>\n    <li class='female'>Female Camper</li>\n    <li class='male'>Male Camper</li>\n  </ul>\n\n  <!-- loops through camper records (from campers component) and prints to page -->\n  <ul>\n    <app-campers *ngFor=\"let thisCamper of campers\"\n      [camper] = \"thisCamper\">\n    </app-campers>\n  </ul>\n\n"
 
 /***/ }),
 
@@ -435,7 +435,7 @@ module.exports = ""
 /***/ "./src/app/new-camper/new-camper.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Add a New Camper</h2>\n<form #newCamperForm=\"ngForm\" (ngSubmit)=\"save(newCamperForm)\">\n\t<label for=\"firstName\">\n\t\t<strong>First Name:</strong>\n\t\t<input id=\"firstName\" type=\"text\" name=\"firstName\" value=\"\" size=\"50\" required=\"required\" [(ngModel)]=\"camper.firstName\"/>\n\t</label>\n\t<br/>\n\t<label for=\"lastName\">\n\t\t<strong>Last Name:</strong>\n\t\t<input id=\"lastName\" type=\"text\" name=\"lastName\" value=\"\" size=\"50\" required=\"required\" [(ngModel)]=\"camper.lastName\"/>\n\t</label>\n\t<br/>\n\t<strong>Gender: </strong>\n\t<br/>\n\t<input id=\"male\" type=\"radio\" [(ngModel)]=\"camper.gender\" name=\"camper.gender\" value=\"Male\" required=\"required\"/>\n\t<label for=\"male\">Male</label>\n\t<input id=\"female\" type=\"radio\" [(ngModel)]=\"camper.gender\" name=\"camper.gender\" value=\"Female\" required=\"required\" />\n\t<label for=\"female\">Female</label>\n\t<input id=\"non-binary\" type=\"radio\" [(ngModel)]=\"camper.gender\" name=\"camper.gender\" value=\"Non-Binary\" required=\"required\"/>\n\t<label for=\"non-binary\">Non-Binary</label>\n\t<br/>\n\t<strong>How much do you snore? </strong>\n\t<br/>\n\t<input id=\"none\" type=\"radio\" [(ngModel)]=\"camper.snoring\" name=\"camper.snoring\" value=\"None\" required=\"required\"/>\n\t<label for=\"none\">Not at all</label>\n\t<input id=\"quiet\" type=\"radio\" [(ngModel)]=\"camper.snoring\" name=\"camper.snoring\" value=\"Quiet\" required=\"required\" />\n\t<label for=\"quiet\">Lightly / Quietly</label>\n\t<input id=\"loud\" type=\"radio\" [(ngModel)]=\"camper.snoring\" name=\"camper.snoring\" value=\"Loud\" required=\"required\"/>\n\t<label for=\"loud\">Heavily / Loudly</label>\n\t<br/>\n\t<strong>How soundly do you sleep? </strong>\n\t<br/>\n\t<input id=\"light\" type=\"radio\" [(ngModel)]=\"camper.sleepHeaviness\" name=\"camper.sleepHeaviness\" value=\"Light\" required=\"required\"/>\n\t<label for=\"light\">Light sleeper</label>\n\t<input id=\"medium\" type=\"radio\" [(ngModel)]=\"camper.sleepHeaviness\" name=\"camper.sleepHeaviness\" value=\"Medium\" required=\"required\"/>\n\t<label for=\"medium\">Medium sleeper</label>\n\t<input id=\"heavy-sleeper\" type=\"radio\" [(ngModel)]=\"camper.sleepHeaviness\" name=\"camper.sleepHeaviness\" value=\"Heavy\" required=\"required\"/>\n\t<label for=\"heavy\">Heavy sleeper</label>\n\t<br/>\n\t<strong>What gender would you prefer your bunkmate(s) be?</strong>\n\t<br/>\n\t<input class=\"maleRoom\" id=\"maleRoom\" type=\"radio\" [(ngModel)]=\"camper.bunkmateGender\" name=\"camper.bunkmateGender\" value=\"Male\" required=\"required\"/>\n\t<label class=\"maleRoom\" for=\"maleRoom\">Male</label>\n\t<input class=\"femaleRoom\" id=\"femaleRoom\" type=\"radio\" [(ngModel)]=\"camper.bunkmateGender\" name=\"camper.bunkmateGender\" value=\"Female\" required=\"required\" />\n\t<label class=\"femaleRoom\" for=\"femaleRoom\">Female</label>\n\t<input id=\"no-preference\" type=\"radio\" [(ngModel)]=\"camper.bunkmateGender\" name=\"camper.bunkmateGender\" value=\"No Preference\" required=\"required\"/>\n\t<label for=\"no-preference\">No Preference</label><br/>\n\t<br/>\n\t<button type=\"submit\" [disabled]=\"!newCamperForm.valid\">Create New Camper Record</button>\n\t<br/>\n</form>\n"
+module.exports = "<button (click)=\"createNewMode(true)\">Add a New Camper</button>\n\n<div *ngIf=\"creating\">\n\t<h2>Add a New Camper</h2>\n\n\t<form #newCamperForm=\"ngForm\" (ngSubmit)=\"save(newCamperForm)\">\n\t\t<label for=\"firstName\">\n\t\t\t<strong>First Name:</strong>\n\t\t\t<input id=\"firstName\" type=\"text\" name=\"firstName\" value=\"\" size=\"50\" required=\"required\" [(ngModel)]=\"camper.firstName\"/>\n\t\t</label>\n\t\t<br/>\n\t\t<label for=\"lastName\">\n\t\t\t<strong>Last Name:</strong>\n\t\t\t<input id=\"lastName\" type=\"text\" name=\"lastName\" value=\"\" size=\"50\" required=\"required\" [(ngModel)]=\"camper.lastName\"/>\n\t\t</label>\n\t\t<br/>\n\t\t<strong>Gender: </strong>\n\t\t<br/>\n\t\t<input id=\"male\" type=\"radio\" [(ngModel)]=\"camper.gender\" name=\"camper.gender\" value=\"Male\" required=\"required\"/>\n\t\t<label for=\"male\">Male</label>\n\t\t<input id=\"female\" type=\"radio\" [(ngModel)]=\"camper.gender\" name=\"camper.gender\" value=\"Female\" required=\"required\" />\n\t\t<label for=\"female\">Female</label>\n\t\t<input id=\"non-binary\" type=\"radio\" [(ngModel)]=\"camper.gender\" name=\"camper.gender\" value=\"Non-Binary\" required=\"required\"/>\n\t\t<label for=\"non-binary\">Non-Binary</label>\n\t\t<br/>\n\t\t<strong>How much do you snore? </strong>\n\t\t<br/>\n\t\t<input id=\"none\" type=\"radio\" [(ngModel)]=\"camper.snoring\" name=\"camper.snoring\" value=\"None\" required=\"required\"/>\n\t\t<label for=\"none\">Not at all</label>\n\t\t<input id=\"quiet\" type=\"radio\" [(ngModel)]=\"camper.snoring\" name=\"camper.snoring\" value=\"Quiet\" required=\"required\" />\n\t\t<label for=\"quiet\">Lightly / Quietly</label>\n\t\t<input id=\"loud\" type=\"radio\" [(ngModel)]=\"camper.snoring\" name=\"camper.snoring\" value=\"Loud\" required=\"required\"/>\n\t\t<label for=\"loud\">Heavily / Loudly</label>\n\t\t<br/>\n\t\t<strong>How soundly do you sleep? </strong>\n\t\t<br/>\n\t\t<input id=\"light\" type=\"radio\" [(ngModel)]=\"camper.sleepHeaviness\" name=\"camper.sleepHeaviness\" value=\"Light\" required=\"required\"/>\n\t\t<label for=\"light\">Light sleeper</label>\n\t\t<input id=\"medium\" type=\"radio\" [(ngModel)]=\"camper.sleepHeaviness\" name=\"camper.sleepHeaviness\" value=\"Medium\" required=\"required\"/>\n\t\t<label for=\"medium\">Medium sleeper</label>\n\t\t<input id=\"heavy-sleeper\" type=\"radio\" [(ngModel)]=\"camper.sleepHeaviness\" name=\"camper.sleepHeaviness\" value=\"Heavy\" required=\"required\"/>\n\t\t<label for=\"heavy\">Heavy sleeper</label>\n\t\t<br/>\n\t\t<strong>What gender would you prefer your bunkmate(s) be?</strong>\n\t\t<br/>\n\t\t<input class=\"maleRoom\" id=\"maleRoom\" type=\"radio\" [(ngModel)]=\"camper.bunkmateGender\" name=\"camper.bunkmateGender\" value=\"Male\" required=\"required\"/>\n\t\t<label class=\"maleRoom\" for=\"maleRoom\">Male</label>\n\t\t<input class=\"femaleRoom\" id=\"femaleRoom\" type=\"radio\" [(ngModel)]=\"camper.bunkmateGender\" name=\"camper.bunkmateGender\" value=\"Female\" required=\"required\" />\n\t\t<label class=\"femaleRoom\" for=\"femaleRoom\">Female</label>\n\t\t<input id=\"no-preference\" type=\"radio\" [(ngModel)]=\"camper.bunkmateGender\" name=\"camper.bunkmateGender\" value=\"No Preference\" required=\"required\"/>\n\t\t<label for=\"no-preference\">No Preference</label><br/>\n\t\t<br/>\n\t\t<button type=\"submit\" [disabled]=\"!newCamperForm.valid\">Create New Camper Record</button>\n\t\t<button (click)=\"clearAndHide(newCamperForm)\">Cancel</button>\n\t\t<br/>\n\t</form>\n</div>\n"
 
 /***/ }),
 
@@ -460,13 +460,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var NewCamperComponent = /** @class */ (function () {
     function NewCamperComponent(camperService) {
         this.camperService = camperService;
+        this.creating = false;
         this.newCamperEvent = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */]();
         this.camper = {};
     }
     NewCamperComponent.prototype.ngOnInit = function () {
     };
+    //changes visibility of create form 
+    NewCamperComponent.prototype.createNewMode = function (mode) {
+        this.creating = (mode ? true : false);
+    };
     //called when button is clicked on new camper form
-    //saves record to DB using camper service and clears form  
+    //saves record to DB using camper service 
+    //clears and hides form  
     NewCamperComponent.prototype.save = function (newCamperForm) {
         var _this = this;
         this.camperService.createCamper(this.camper)
@@ -474,7 +480,12 @@ var NewCamperComponent = /** @class */ (function () {
             console.log(camper);
             _this.newCamperEvent.emit();
             newCamperForm.reset();
+            _this.createNewMode(false);
         });
+    };
+    NewCamperComponent.prototype.clearAndHide = function (newCamperForm) {
+        newCamperForm.reset();
+        this.createNewMode(false);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* Output */])(),

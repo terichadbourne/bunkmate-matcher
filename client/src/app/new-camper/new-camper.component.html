@@ -1,51 +1,57 @@
-<h2>Add a New Camper</h2>
-<form #newCamperForm="ngForm" (ngSubmit)="save(newCamperForm)">
-	<label for="firstName">
-		<strong>First Name:</strong>
-		<input id="firstName" type="text" name="firstName" value="" size="50" required="required" [(ngModel)]="camper.firstName"/>
-	</label>
-	<br/>
-	<label for="lastName">
-		<strong>Last Name:</strong>
-		<input id="lastName" type="text" name="lastName" value="" size="50" required="required" [(ngModel)]="camper.lastName"/>
-	</label>
-	<br/>
-	<strong>Gender: </strong>
-	<br/>
-	<input id="male" type="radio" [(ngModel)]="camper.gender" name="camper.gender" value="Male" required="required"/>
-	<label for="male">Male</label>
-	<input id="female" type="radio" [(ngModel)]="camper.gender" name="camper.gender" value="Female" required="required" />
-	<label for="female">Female</label>
-	<input id="non-binary" type="radio" [(ngModel)]="camper.gender" name="camper.gender" value="Non-Binary" required="required"/>
-	<label for="non-binary">Non-Binary</label>
-	<br/>
-	<strong>How much do you snore? </strong>
-	<br/>
-	<input id="none" type="radio" [(ngModel)]="camper.snoring" name="camper.snoring" value="None" required="required"/>
-	<label for="none">Not at all</label>
-	<input id="quiet" type="radio" [(ngModel)]="camper.snoring" name="camper.snoring" value="Quiet" required="required" />
-	<label for="quiet">Lightly / Quietly</label>
-	<input id="loud" type="radio" [(ngModel)]="camper.snoring" name="camper.snoring" value="Loud" required="required"/>
-	<label for="loud">Heavily / Loudly</label>
-	<br/>
-	<strong>How soundly do you sleep? </strong>
-	<br/>
-	<input id="light" type="radio" [(ngModel)]="camper.sleepHeaviness" name="camper.sleepHeaviness" value="Light" required="required"/>
-	<label for="light">Light sleeper</label>
-	<input id="medium" type="radio" [(ngModel)]="camper.sleepHeaviness" name="camper.sleepHeaviness" value="Medium" required="required"/>
-	<label for="medium">Medium sleeper</label>
-	<input id="heavy-sleeper" type="radio" [(ngModel)]="camper.sleepHeaviness" name="camper.sleepHeaviness" value="Heavy" required="required"/>
-	<label for="heavy">Heavy sleeper</label>
-	<br/>
-	<strong>What gender would you prefer your bunkmate(s) be?</strong>
-	<br/>
-	<input class="maleRoom" id="maleRoom" type="radio" [(ngModel)]="camper.bunkmateGender" name="camper.bunkmateGender" value="Male" required="required"/>
-	<label class="maleRoom" for="maleRoom">Male</label>
-	<input class="femaleRoom" id="femaleRoom" type="radio" [(ngModel)]="camper.bunkmateGender" name="camper.bunkmateGender" value="Female" required="required" />
-	<label class="femaleRoom" for="femaleRoom">Female</label>
-	<input id="no-preference" type="radio" [(ngModel)]="camper.bunkmateGender" name="camper.bunkmateGender" value="No Preference" required="required"/>
-	<label for="no-preference">No Preference</label><br/>
-	<br/>
-	<button type="submit" [disabled]="!newCamperForm.valid">Create New Camper Record</button>
-	<br/>
-</form>
+<button (click)="createNewMode(true)">Add a New Camper</button>
+
+<div *ngIf="creating">
+	<h2>Add a New Camper</h2>
+
+	<form #newCamperForm="ngForm" (ngSubmit)="save(newCamperForm)">
+		<label for="firstName">
+			<strong>First Name:</strong>
+			<input id="firstName" type="text" name="firstName" value="" size="50" required="required" [(ngModel)]="camper.firstName"/>
+		</label>
+		<br/>
+		<label for="lastName">
+			<strong>Last Name:</strong>
+			<input id="lastName" type="text" name="lastName" value="" size="50" required="required" [(ngModel)]="camper.lastName"/>
+		</label>
+		<br/>
+		<strong>Gender: </strong>
+		<br/>
+		<input id="male" type="radio" [(ngModel)]="camper.gender" name="camper.gender" value="Male" required="required"/>
+		<label for="male">Male</label>
+		<input id="female" type="radio" [(ngModel)]="camper.gender" name="camper.gender" value="Female" required="required" />
+		<label for="female">Female</label>
+		<input id="non-binary" type="radio" [(ngModel)]="camper.gender" name="camper.gender" value="Non-Binary" required="required"/>
+		<label for="non-binary">Non-Binary</label>
+		<br/>
+		<strong>How much do you snore? </strong>
+		<br/>
+		<input id="none" type="radio" [(ngModel)]="camper.snoring" name="camper.snoring" value="None" required="required"/>
+		<label for="none">Not at all</label>
+		<input id="quiet" type="radio" [(ngModel)]="camper.snoring" name="camper.snoring" value="Quiet" required="required" />
+		<label for="quiet">Lightly / Quietly</label>
+		<input id="loud" type="radio" [(ngModel)]="camper.snoring" name="camper.snoring" value="Loud" required="required"/>
+		<label for="loud">Heavily / Loudly</label>
+		<br/>
+		<strong>How soundly do you sleep? </strong>
+		<br/>
+		<input id="light" type="radio" [(ngModel)]="camper.sleepHeaviness" name="camper.sleepHeaviness" value="Light" required="required"/>
+		<label for="light">Light sleeper</label>
+		<input id="medium" type="radio" [(ngModel)]="camper.sleepHeaviness" name="camper.sleepHeaviness" value="Medium" required="required"/>
+		<label for="medium">Medium sleeper</label>
+		<input id="heavy-sleeper" type="radio" [(ngModel)]="camper.sleepHeaviness" name="camper.sleepHeaviness" value="Heavy" required="required"/>
+		<label for="heavy">Heavy sleeper</label>
+		<br/>
+		<strong>What gender would you prefer your bunkmate(s) be?</strong>
+		<br/>
+		<input class="maleRoom" id="maleRoom" type="radio" [(ngModel)]="camper.bunkmateGender" name="camper.bunkmateGender" value="Male" required="required"/>
+		<label class="maleRoom" for="maleRoom">Male</label>
+		<input class="femaleRoom" id="femaleRoom" type="radio" [(ngModel)]="camper.bunkmateGender" name="camper.bunkmateGender" value="Female" required="required" />
+		<label class="femaleRoom" for="femaleRoom">Female</label>
+		<input id="no-preference" type="radio" [(ngModel)]="camper.bunkmateGender" name="camper.bunkmateGender" value="No Preference" required="required"/>
+		<label for="no-preference">No Preference</label><br/>
+		<br/>
+		<button type="submit" [disabled]="!newCamperForm.valid">Create New Camper Record</button>
+		<button (click)="clearAndHide(newCamperForm)">Cancel</button>
+		<br/>
+	</form>
+</div>

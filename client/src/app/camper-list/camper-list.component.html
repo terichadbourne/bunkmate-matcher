@@ -1,4 +1,10 @@
 <!-- Displays formatting key -->
+
+<!-- refreshes camper list when new camper event received -->
+<app-new-camper
+ (newCamperEvent)="refreshCamperList()">
+</app-new-camper>
+
 <h2>Current Campers ({{campers.length}})</h2>
   <ul class='box' id='key'>
     <li class='coedCabin'>Coed Cabin</li>
@@ -16,7 +22,3 @@
     </app-campers>
   </ul>
 
-<!-- refreshes camper list when new camper event received -->
-  <app-new-camper
-  	(newCamperEvent)="refreshCamperList()">
-  </app-new-camper>
