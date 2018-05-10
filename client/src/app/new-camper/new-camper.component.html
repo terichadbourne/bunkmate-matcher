@@ -1,6 +1,4 @@
-<button (click)="createNewMode(true)">Add a New Camper</button>
-
-<div *ngIf="creating">
+<div class='box'>
 	<h2>Add a New Camper</h2>
 
 	<form #newCamperForm="ngForm" (ngSubmit)="save(newCamperForm)">

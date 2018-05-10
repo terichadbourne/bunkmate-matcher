@@ -75,12 +75,9 @@ ul {
 	padding: 20px;
 	border-radius: 10px;
 	margin-bottom: 10px;
+	margin-top: 10px;
 }
 
-.box#key {
-	border: none;
-}
-
-#key .male, #key .female, #key .nonbinary {
+.box.key {
 	border: none;
 }

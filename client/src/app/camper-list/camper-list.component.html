@@ -1,40 +1,58 @@
-<!-- Displays formatting key -->
 
-<!-- refreshes camper list when new camper event received -->
-<app-new-camper
- (newCamperEvent)="refreshCamperList()">
-</app-new-camper>
+<!--   <app-new-camper>
+    refreshes camper list when new camper event received
+   (newCamperEvent)="refreshCamperList()">
+  </app-new-camper> -->
 
-<h2>Current Campers ({{campers.length}})</h2>
-  <ul class='box' id='key'>
-    <li class='coedCabin'>Coed Cabin</li>
-    <li class='femaleCabin'>Female Cabin</li>
-    <li class='maleCabin'>Male Cabin</li>
-    <li class='nonbinary'>Non-Binary Camper</li>
-    <li class='female'>Female Camper</li>
-    <li class='male'>Male Camper</li>
-  </ul>
 
-  <!-- loops through camper records (from campers component) and prints to page -->
+<!-- loops through camper records and prints to page, sorted by type of cabin needed -->
+
+<div class='box'>
+  <h2>Current Campers ({{campers.length}})</h2>
+
+  <button *ngIf="!breakdown" (click)="showBreakdown(true)">Show Camper Breakdown</button>
+  <button *ngIf="breakdown" (click)="showBreakdown(false)">Hide Camper Breakdown</button>
+  <button (click)="newCamper()">Add New Camper</button>
+
+  <div *ngIf="breakdown" class='box'>
+    <h3>Camper Breakdown</h3>
+    <p><strong>Total Campers: {{campers.length}}</strong></p>
+    <p><strong>Counts by Gender:</strong></p>
+    <ul class='key'>
+      <li class='female'>Female Camper ({{femaleCampers.length}})</li>
+      <li class='nonbinary'>Non-Binary Camper ({{nonbinaryCampers.length}})</li>
+      <li class='male'>Male Camper ({{maleCampers.length}})</li>
+    </ul>
+    <p><strong>Counts by Cabin Preference:</strong></p>
+    <ul class='key'>
+      <li class='femaleCabin female'>Female Cabin ({{femaleCabin.length}})</li>
+      <li class='coedCabin female'>Co-Ed or Female Cabin ({{coedFemaleCabin.length}})</li>
+      <li class='coedCabin nonbinary'>Coed Cabin ({{coedCabin.length}})</li>
+      <li class='coedCabin male'>Co-Ed or Male Cabin ({{coedMaleCabin.length}})</li>
+      <li class='maleCabin male'>Male Cabin ({{maleCabin.length}})</li>
+    </ul>
+  </div>
+
   <ul>
-    <app-female *ngFor="let thisCamper of campers"
+    <app-campers *ngFor="let thisCamper of femaleCabin"
       [camper] = "thisCamper">
-    </app-female>
-    
-    <app-coed-female *ngFor="let thisCamper of campers"
-      [camper] = "thisCamper">
-    </app-coed-female>
+    </app-campers>
 
-    <app-coed *ngFor="let thisCamper of campers"
+    <app-campers *ngFor="let thisCamper of coedFemaleCabin"
       [camper] = "thisCamper">
-    </app-coed>
+    </app-campers>
 
-    <app-coed-male *ngFor="let thisCamper of campers"
+    <app-campers *ngFor="let thisCamper of coedCabin"
       [camper] = "thisCamper">
-    </app-coed-male>
+    </app-campers>
 
-    <app-male *ngFor="let thisCamper of campers"
+    <app-campers *ngFor="let thisCamper of coedMaleCabin"
       [camper] = "thisCamper">
-    </app-male>
+    </app-campers>
+
+    <app-campers *ngFor="let thisCamper of maleCabin"
+      [camper] = "thisCamper">
+    </app-campers>
   </ul>
+</div>
 

@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CampersComponent implements OnInit {
 
-//lets camper record come from camper list into campers component
+//lets camper record come from camper list into this component
   @Input() camper;
   
   constructor() { }

@@ -1,6 +1,6 @@
 <div *ngIf="camper">
 <!-- 	this section displays if not in editing mode -->
-	<div *ngIf="!editing">
+	<div *ngIf="!editing" class='box'>
 		<h2>Camper Details</h2>
 		<li class={{camper.classes}}>
 		  	<strong>{{camper.firstName}} {{camper.lastName}}</strong>
@@ -23,7 +23,7 @@
 	</div> 
 
 	<!-- this section displays when in editing mode -->
-	<div *ngIf="editing">
+	<div *ngIf="editing" class='box'>
 <!-- 		one-way binding form so underlying data doesn't change until we hit save -->
 		<form #form="ngForm" (ngSubmit)="updateCamper(form.value)">
 			<label for="firstName">
