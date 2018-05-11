@@ -2,6 +2,11 @@
 CSCI E-31, Spring 2018
 Assignment 7 -->
 
+
+<div *ngIf='!camper'>
+	<p>There's no camper by that ID number. Try picking one from the <a routerLink="/campers">list of campers</a>.
+</div>
+
 <div *ngIf="camper">
 <!-- 	this section displays if not in editing mode -->
 	<div *ngIf="!editing" class='box'>
