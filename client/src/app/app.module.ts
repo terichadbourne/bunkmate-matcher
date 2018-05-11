@@ -1,3 +1,9 @@
+/* 
+Teri Chadbourne
+CSCI E-31, Spring 2018
+Assignment 7
+*/
+
 //imports Angular functionality needed
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';

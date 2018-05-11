@@ -1,7 +1,7 @@
 /* 
 Teri Chadbourne
 CSCI E-31, Spring 2018
-Assignment 5
+Assignment 7
 */
 
 //imports required modules
@@ -32,10 +32,10 @@ var urlencodedParser = bodyparser.urlencoded({extended: false});
 //sets up bodyparser
 app.use(bodyparser.urlencoded({extended: false}));
 
-//routes to api via express
+//routes to api 
 app.use('/api/bunkmates', jsonParser, api);
 
-//routes to angular app
+//routes to angular app views
 app.use('', express.static('../client/dist'));
 app.use('/campers', express.static('../client/dist'));
 app.use('/camper/:id', express.static('../client/dist'));

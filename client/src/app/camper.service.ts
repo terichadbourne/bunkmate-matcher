@@ -1,3 +1,10 @@
+/* 
+Teri Chadbourne
+CSCI E-31, Spring 2018
+Assignment 7
+*/
+
+
 //imports Angular functionality needed
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';

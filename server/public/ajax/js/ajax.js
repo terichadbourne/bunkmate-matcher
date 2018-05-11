@@ -2,7 +2,7 @@
 /* 
 Teri Chadbourne
 CSCI E-31, Spring 2018
-Assignment 5
+Assignment 7
 */
 
 //makes sure DOM has loaded first

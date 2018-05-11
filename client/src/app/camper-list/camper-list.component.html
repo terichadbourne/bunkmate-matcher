@@ -1,19 +1,20 @@
-
-<!--   <app-new-camper>
-    refreshes camper list when new camper event received
-   (newCamperEvent)="refreshCamperList()">
-  </app-new-camper> -->
-
+<!-- Teri Chadbourne
+CSCI E-31, Spring 2018
+Assignment 7 -->
 
 <!-- loops through camper records and prints to page, sorted by type of cabin needed -->
 
 <div class='box'>
   <h2>Current Campers ({{campers.length}})</h2>
 
+  <!-- buttons show/hide camper counts -->
   <button *ngIf="!breakdown" (click)="showBreakdown(true)">Show Camper Breakdown</button>
   <button *ngIf="breakdown" (click)="showBreakdown(false)">Hide Camper Breakdown</button>
+  
+  <!-- button redirects to new camper form view -->
   <button (click)="newCamper()">Add New Camper</button>
 
+  <!-- displays counts of campers by gender and cabin preference -->
   <div *ngIf="breakdown" class='box'>
     <h3>Camper Breakdown</h3>
     <p><strong>Total Campers: {{campers.length}}</strong></p>
@@ -33,6 +34,7 @@
     </ul>
   </div>
 
+  <!-- loops through camper records and prints to page, sorted by type of cabin needed -->
   <div *ngIf="!genderSort">
     <h4>Sorted by Cabin Preference</h4>
     <button *ngIf="!genderSort" (click)="sortGender(true)">Sort by Gender</button>
@@ -62,6 +64,8 @@
     </ul>
   </div>
 
+
+  <!-- loops through camper records and prints to page, sorted by camper gender -->
   <div *ngIf="genderSort">
     <h4>Sorted by Gender</h4>
     <button *ngIf="genderSort" (click)="sortGender(false)">Sort by Cabin Preference</button>

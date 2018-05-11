@@ -1,3 +1,9 @@
+/* 
+Teri Chadbourne
+CSCI E-31, Spring 2018
+Assignment 7
+*/
+
 import { Component, OnInit } from '@angular/core';
 //import { CamperService } from './camper.service';
 

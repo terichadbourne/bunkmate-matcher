@@ -1,3 +1,9 @@
+/* 
+Teri Chadbourne
+CSCI E-31, Spring 2018
+Assignment 7
+*/
+
 //import needed angular functionality
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';

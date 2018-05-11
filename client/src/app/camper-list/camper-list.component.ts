@@ -1,3 +1,10 @@
+/* 
+Teri Chadbourne
+CSCI E-31, Spring 2018
+Assignment 7
+*/
+
+//imports needed functionality from angular
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -78,7 +85,6 @@ export class CamperListComponent implements OnInit {
   			this.campers = campers;
 
         //rewrites filtered camper lists by gender and acceptable room
-
         this.maleCampers = this.campers.filter(function(camper){
           return camper.gender == 'Male';
         });
