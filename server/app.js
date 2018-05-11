@@ -7,7 +7,6 @@ Assignment 7
 //imports required modules
 var express = require('express');
 var path = require('path');
-var bunkmates = require('./routes/bunkmates');
 var api = require('./routes/api');
 var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
