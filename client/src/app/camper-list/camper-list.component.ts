@@ -33,6 +33,11 @@ export class CamperListComponent implements OnInit {
   //sets camper breakdown to be hidden by default
   breakdown:boolean = false;
 
+  //sets sort to be by cabin type by default
+  genderSort:boolean = false;
+
+  //sets labels to be hideen by default
+  hiddenLabels:boolean = true;
 
   constructor(
 	  private camperService:CamperService, 
@@ -50,6 +55,16 @@ export class CamperListComponent implements OnInit {
     this.breakdown = (mode ? true : false);
   }
 
+  //toggles sort between gender (true) and cabin preference (false)
+  sortGender(mode):void {
+    this.genderSort = (mode ? true : false);
+  }
+
+  //toggles sort between gender (true) and cabin preference (false)
+  hideLabels(mode):void {
+    this.hiddenLabels = (mode ? true : false);
+  }
+
   //navigates to new camper form
   newCamper():void {
     this.router.navigate(['/new']);
@@ -63,7 +78,7 @@ export class CamperListComponent implements OnInit {
   			this.campers = campers;
 
         //rewrites filtered camper lists by gender and acceptable room
-        
+
         this.maleCampers = this.campers.filter(function(camper){
           return camper.gender == 'Male';
         });

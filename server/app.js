@@ -29,22 +29,18 @@ app.set('view engine', 'pug');
 var jsonParser = bodyparser.json();
 var urlencodedParser = bodyparser.urlencoded({extended: false});
 
-//directs static requests to public folder
-app.use(
-	express.static(path.join(__dirname, 'public'))
-);
-
 //sets up bodyparser
 app.use(bodyparser.urlencoded({extended: false}));
 
-//uses the appropriate routers
+//routes to api via express
 app.use('/api/bunkmates', jsonParser, api);
-app.use('/bunkmates', urlencodedParser, bunkmates);
-//routes to angular app
-app.use('/', express.static('../client/dist'));
-//was previously app.use('/', urlencodedParser, bunkmates);
-app.use('', urlencodedParser, bunkmates);
 
+//routes to angular app
+app.use('', express.static('../client/dist'));
+app.use('/campers', express.static('../client/dist'));
+app.use('/camper/:id', express.static('../client/dist'));
+app.use('/new', express.static('../client/dist'));
+app.use('/', express.static('../client/dist'));
 
 
 //shows 404 error as needed

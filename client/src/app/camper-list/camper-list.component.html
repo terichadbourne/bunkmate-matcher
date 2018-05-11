@@ -33,26 +33,54 @@
     </ul>
   </div>
 
-  <ul>
-    <app-campers *ngFor="let thisCamper of femaleCabin"
-      [camper] = "thisCamper">
-    </app-campers>
+  <div *ngIf="!genderSort">
+    <h4>Sorted by Cabin Preference</h4>
+    <button *ngIf="!genderSort" (click)="sortGender(true)">Sort by Gender</button>
+    <button *ngIf="!hiddenLabels" (click)="hideLabels(true)">Hide Labels</button>
+    <button *ngIf="hiddenLabels" (click)="hideLabels(false)">Show Labels</button>
+    <ul>
+      <p *ngIf="!hiddenLabels"><strong>Female Cabin</strong></p>
+      <app-campers *ngFor="let thisCamper of femaleCabin"
+        [camper] = "thisCamper">
+      </app-campers>
+      <p *ngIf="!hiddenLabels"><strong>Female or Co-Ed Cabin</strong></p>
+      <app-campers *ngFor="let thisCamper of coedFemaleCabin"
+        [camper] = "thisCamper">
+      </app-campers>
+      <p *ngIf="!hiddenLabels"><strong>Co-Ed Cabin</strong></p>
+      <app-campers *ngFor="let thisCamper of coedCabin"
+        [camper] = "thisCamper">
+      </app-campers>
+      <p *ngIf="!hiddenLabels"><strong>Male or Co-Ed Cabin</strong></p>
+      <app-campers *ngFor="let thisCamper of coedMaleCabin"
+        [camper] = "thisCamper">
+      </app-campers>
+      <p *ngIf="!hiddenLabels"><strong>Male Cabin</strong></p>
+      <app-campers *ngFor="let thisCamper of maleCabin"
+        [camper] = "thisCamper">
+      </app-campers>
+    </ul>
+  </div>
 
-    <app-campers *ngFor="let thisCamper of coedFemaleCabin"
-      [camper] = "thisCamper">
-    </app-campers>
+  <div *ngIf="genderSort">
+    <h4>Sorted by Gender</h4>
+    <button *ngIf="genderSort" (click)="sortGender(false)">Sort by Cabin Preference</button>
+    <button *ngIf="!hiddenLabels" (click)="hideLabels(true)">Hide Labels</button>
+    <button *ngIf="hiddenLabels" (click)="hideLabels(false)">Show Labels</button>
+    <ul *ngIf="genderSort">
+      <p *ngIf="!hiddenLabels"><strong>Female Campers</strong></p>
+      <app-campers *ngFor="let thisCamper of femaleCampers"
+        [camper] = "thisCamper">
+      </app-campers>
+      <p *ngIf="!hiddenLabels"><strong>Non-Binary Campers</strong></p>
+      <app-campers *ngFor="let thisCamper of nonbinaryCampers"
+        [camper] = "thisCamper">
+      </app-campers>
+      <p *ngIf="!hiddenLabels"><strong>Male Campers</strong></p>
+      <app-campers *ngFor="let thisCamper of maleCampers"
+        [camper] = "thisCamper">
+      </app-campers>
 
-    <app-campers *ngFor="let thisCamper of coedCabin"
-      [camper] = "thisCamper">
-    </app-campers>
-
-    <app-campers *ngFor="let thisCamper of coedMaleCabin"
-      [camper] = "thisCamper">
-    </app-campers>
-
-    <app-campers *ngFor="let thisCamper of maleCabin"
-      [camper] = "thisCamper">
-    </app-campers>
-  </ul>
+    </ul>
 </div>
 
