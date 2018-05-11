@@ -9,7 +9,7 @@ The back end of this app (found in the `server` directory) uses Express to creat
 The front end (found in the `client` directory) uses Angular to access that API.
 
 ## To view the app running live via Digital Ocean: 
-* Open a browser window to [http://159.65.38.165:8080] to see the main Angular UI.
+* Open a browser window to [http://159.65.38.165:8080](http://159.65.38.165:8080) to see the main Angular UI.
 
 ## To run this code locally: 
 * Clone the repo from GitHub.
