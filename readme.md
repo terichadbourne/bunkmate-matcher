@@ -1,10 +1,12 @@
-# Assignment #7 - Final Project
+# Bunkmate Matcher
+
+Assignment #7 - Final Project
 Teri Chadbourne
 
 ## The premise of this app: 
 I manage a series of tech retreats called Offline Camp for which I need to match up strangers and turn them into roommates while keeping everyone relatively comfortable. This app is a first step toward managing that process with a computer instead of with sticky notes. 
 
-The back end of this app (found in the `server` directory) uses Express to create a data service that can be accessed via API. 
+The back end of this app (found in the `server` directory) uses Express and Mongoose to create a data service that can be accessed via API. 
 
 The front end (found in the `client` directory) uses Angular to access that API.
 
