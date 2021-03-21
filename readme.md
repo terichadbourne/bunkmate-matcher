@@ -2,6 +2,8 @@
 
 Assignment #7 - Final Project
 Teri Chadbourne
+Web Application Development using Node.js
+Spring 2018
 
 ## The premise of this app: 
 I manage a series of tech retreats called Offline Camp for which I need to match up strangers and turn them into roommates while keeping everyone relatively comfortable. This app is a first step toward managing that process with a computer instead of with sticky notes. 
