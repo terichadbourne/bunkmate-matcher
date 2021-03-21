@@ -1,14 +1,11 @@
 # Bunkmate Matcher
 
-Assignment #7 - Final Project
-Teri Chadbourne
-Web Application Development using Node.js
-Spring 2018
+This app was built as a final project for a graduate-level Web Application Development using Node.js course, taken at Harvard Extension School in the Spring of 2018.
 
 ## The premise of this app: 
 I manage a series of tech retreats called Offline Camp for which I need to match up strangers and turn them into roommates while keeping everyone relatively comfortable. This app is a first step toward managing that process with a computer instead of with sticky notes. 
 
-The back end of this app (found in the `server` directory) uses Express and Mongoose to create a data service that can be accessed via API. 
+The back end of this Node.js app (found in the `server` directory) uses Express and Mongoose to create a data service that can be accessed via API. 
 
 The front end (found in the `client` directory) uses Angular to access that API.
 
